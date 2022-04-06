@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemoListViewController.swift
 //  MyMemory
 //
 //  Created by 노주영 on 2022/04/06.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
