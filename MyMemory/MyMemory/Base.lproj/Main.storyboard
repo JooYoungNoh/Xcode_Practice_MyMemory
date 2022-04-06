@@ -70,6 +70,11 @@
                                                 <constraint firstItem="8P5-2g-zev" firstAttribute="top" secondItem="zYx-Kf-95W" secondAttribute="topMargin" constant="5" id="vGz-fh-cIp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contents" destination="EuV-Sz-66d" id="nX1-93-SiN"/>
+                                            <outlet property="regdate" destination="8P5-2g-zev" id="iAp-5w-ojV"/>
+                                            <outlet property="subject" destination="yeb-bj-LIO" id="NAL-Aq-isI"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ImageMemoCell" rowHeight="80" id="Ynf-6P-yXu" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124.66666603088379" width="390" height="80"/>
@@ -125,6 +130,12 @@
                                                 <constraint firstItem="Ydd-1S-MST" firstAttribute="top" secondItem="Eh0-Tc-XGr" secondAttribute="topMargin" constant="8" id="yRM-P2-fuI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contents" destination="Pyf-P0-7ih" id="Tjy-1x-LIu"/>
+                                            <outlet property="img" destination="aIT-dq-RHI" id="6hk-xo-ozH"/>
+                                            <outlet property="regdate" destination="Ydd-1S-MST" id="G7v-Nl-2RU"/>
+                                            <outlet property="subject" destination="fbm-PZ-k8B" id="K9E-K7-5U3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
