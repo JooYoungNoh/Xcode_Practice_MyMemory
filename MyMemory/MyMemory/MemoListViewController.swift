@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoListViewController: UIViewController, UITableViewDataSource {
+class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelgate = UIApplication.shared.delegate as! AppDelegate
     
@@ -42,8 +42,16 @@ class MemoListViewController: UIViewController, UITableViewDataSource {
         return self.appDelgate.memolist.count
     }
     
-    func tableview(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //memolist 배열에서 선택된 행에 맞는 데이터를 꺼낸다
+        let row = self.appDelgate.memolist[indexPath.row]
         
+        //메모읽기 화면의 인스턴스를 생성
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoReadViewController") as? MemoReadViewController else { return }
+        
+        //값을 전달한 다음, 다음화면으로 이동한다
+        vc.param = row
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: ViewDidLoad
