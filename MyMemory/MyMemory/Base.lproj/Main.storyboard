@@ -185,16 +185,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpY-yB-Vqr">
-                                <rect key="frame" x="15" y="146" width="360" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="wPQ-WF-Vdg"/>
-                                </constraints>
+                                <rect key="frame" x="15" y="146" width="360" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="naN-h6-Qgl">
-                                <rect key="frame" x="70" y="192" width="250" height="250"/>
+                                <rect key="frame" x="70" y="188" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="VyT-cn-60I"/>
                                     <constraint firstAttribute="height" constant="250" id="ydD-1b-QrO"/>
