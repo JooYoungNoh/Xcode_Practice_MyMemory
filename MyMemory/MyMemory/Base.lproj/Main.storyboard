@@ -99,9 +99,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aIT-dq-RHI">
-                                                    <rect key="frame" x="20" y="5" width="50" height="70"/>
+                                                    <rect key="frame" x="20" y="10" width="50" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="csc-bW-5kl"/>
+                                                        <constraint firstAttribute="height" constant="60" id="yd6-iH-AU9"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜/시간" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydd-1S-MST">
@@ -120,12 +121,12 @@
                                                 <constraint firstItem="Ydd-1S-MST" firstAttribute="leading" secondItem="Pyf-P0-7ih" secondAttribute="trailing" constant="15" id="Bta-zQ-7w9"/>
                                                 <constraint firstItem="Ydd-1S-MST" firstAttribute="leading" secondItem="fbm-PZ-k8B" secondAttribute="trailing" constant="15" id="CBB-r4-UEK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ydd-1S-MST" secondAttribute="trailing" constant="10" id="JYo-yF-zKN"/>
-                                                <constraint firstAttribute="bottom" secondItem="aIT-dq-RHI" secondAttribute="bottom" constant="5" id="OSM-yI-dDx"/>
                                                 <constraint firstItem="Pyf-P0-7ih" firstAttribute="leading" secondItem="aIT-dq-RHI" secondAttribute="trailing" constant="10" id="Pf9-ew-TAo"/>
+                                                <constraint firstAttribute="bottom" secondItem="aIT-dq-RHI" secondAttribute="bottom" constant="10" id="QKY-XC-S1W"/>
                                                 <constraint firstItem="fbm-PZ-k8B" firstAttribute="leading" secondItem="aIT-dq-RHI" secondAttribute="trailing" constant="10" id="SBw-YA-BZh"/>
                                                 <constraint firstItem="Pyf-P0-7ih" firstAttribute="top" secondItem="fbm-PZ-k8B" secondAttribute="bottom" constant="12" id="VDj-TH-npZ"/>
                                                 <constraint firstItem="fbm-PZ-k8B" firstAttribute="top" secondItem="Eh0-Tc-XGr" secondAttribute="topMargin" constant="8" id="Wz3-v6-rh9"/>
-                                                <constraint firstItem="aIT-dq-RHI" firstAttribute="top" secondItem="Eh0-Tc-XGr" secondAttribute="top" constant="5" id="c1u-dD-e0n"/>
+                                                <constraint firstItem="aIT-dq-RHI" firstAttribute="top" secondItem="Eh0-Tc-XGr" secondAttribute="top" constant="10" id="c1u-dD-e0n"/>
                                                 <constraint firstItem="aIT-dq-RHI" firstAttribute="leading" secondItem="Eh0-Tc-XGr" secondAttribute="leading" constant="20" symbolic="YES" id="huC-i6-TeA"/>
                                                 <constraint firstItem="Ydd-1S-MST" firstAttribute="top" secondItem="Eh0-Tc-XGr" secondAttribute="topMargin" constant="8" id="yRM-P2-fuI"/>
                                             </constraints>
@@ -138,6 +139,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="H9I-hQ-0Cc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -163,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="68"/>
+            <point key="canvasLocation" x="487.69230769230768" y="67.535545023696685"/>
         </scene>
         <!--Title-->
         <scene sceneID="8qk-83-L08">
