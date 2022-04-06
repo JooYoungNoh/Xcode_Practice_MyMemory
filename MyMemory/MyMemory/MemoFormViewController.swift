@@ -7,8 +7,23 @@
 
 import UIKit
 
-class MemoFormViewController: UIViewController {
+class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var subject: String!        //제목을 저장할 객체
+    
+    @IBOutlet weak var contentsView: UITextView!
+    @IBOutlet weak var preview: UIImageView!
+    
+    @IBAction func save(_ sender: UIBarButtonItem){
+        
+        
+    }
+    
+    @IBAction func pick(_ sender: UIBarButtonItem){
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
