@@ -9,6 +9,12 @@ import UIKit
 
 class MemoReadViewController: UIViewController {
 
+    var param: MemoData?
+    
+    @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var contents: UILabel!
+    @IBOutlet weak var img: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

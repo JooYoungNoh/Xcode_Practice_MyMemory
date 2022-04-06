@@ -172,7 +172,7 @@
         <!--Title-->
         <scene sceneID="8qk-83-L08">
             <objects>
-                <viewController id="eob-OB-64v" customClass="MemoReadViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoReadViewController" id="eob-OB-64v" customClass="MemoReadViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P3E-Jg-wnz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,6 +215,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="RO4-h2-ZX0"/>
+                    <connections>
+                        <outlet property="contents" destination="kpY-yB-Vqr" id="UBY-j6-NKs"/>
+                        <outlet property="img" destination="naN-h6-Qgl" id="zWV-cE-Taa"/>
+                        <outlet property="subject" destination="rPA-5h-dnT" id="4Fh-m6-gWR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpZ-vF-1Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
