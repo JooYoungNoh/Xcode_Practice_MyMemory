@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     //스테퍼 객체
     var paramInterval: UIStepper!
     
+    //스위치 객체의 값을 표현할 레이블
+    var textUpdate: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -85,6 +88,16 @@ class ViewController: UIViewController {
         self.paramInterval.value = 0                //초기값 설정
         
         self.view.addSubview(paramInterval)
+        
+        // MARK: 스위치의 값을 표현할 레이블
+        self.textUpdate = UILabel()
+        
+        self.textUpdate.frame = CGRect(x: 250, y: 150, width: 100, height: 30)
+        self.textUpdate.font = UIFont.systemFont(ofSize: 12)
+        self.textUpdate.textColor = UIColor.red     //텍스트 색상 설정
+        self.textUpdate.text = "갱신함"
+        
+        self.view.addSubview(textUpdate)
     }
 
 
