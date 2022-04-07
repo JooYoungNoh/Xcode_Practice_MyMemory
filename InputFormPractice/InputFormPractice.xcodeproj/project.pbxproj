@@ -14,6 +14,7 @@
 		73050A8F27FF43EF00D5F1CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73050A8E27FF43EF00D5F1CE /* Assets.xcassets */; };
 		73050A9227FF43EF00D5F1CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73050A9027FF43EF00D5F1CE /* LaunchScreen.storyboard */; };
 		73050A9A27FF6D8300D5F1CE /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73050A9927FF6D8300D5F1CE /* ReadViewController.swift */; };
+		73050A9C27FF746E00D5F1CE /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73050A9B27FF725700D5F1CE /* SDMiSaeng.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73050A9C27FF746E00D5F1CE /* SDMiSaeng.ttf in Resources */,
 				73050A9227FF43EF00D5F1CE /* LaunchScreen.storyboard in Resources */,
 				73050A8F27FF43EF00D5F1CE /* Assets.xcassets in Resources */,
 				73050A8D27FF43EE00D5F1CE /* Main.storyboard in Resources */,
@@ -293,6 +295,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InputFormPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -320,6 +323,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InputFormPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
