@@ -30,6 +30,16 @@ class ReadViewController: UIViewController {
         email.frame = CGRect(x: 50, y: 100, width: 300, height: 30)
         update.frame = CGRect(x: 50, y: 150, width: 300, height: 30)
         interval.frame = CGRect(x: 50, y: 200, width: 300, height: 30)
+        
+        //전달받은 값 레이블에 표시
+        email.text = "전달받은 이메일 : \(self.pEmail!)"
+        update.text = "업데이트 여부 : \(self.pUpdate == true ? "업데이트 함" : "업데이트 안함")"
+        interval.text = "업데이트 주기 : \(self.pInterval!)분마다"
+        
+        //레이블을 루트 뷰에 추가
+        self.view.addSubview(email)
+        self.view.addSubview(update)
+        self.view.addSubview(interval)
     }
     
 
