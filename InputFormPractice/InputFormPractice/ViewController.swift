@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     //스위치 객체
     var paramUpdate: UISwitch!
     
+    //스테퍼 객체
+    var paramInterval: UIStepper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
         
         self.view.addSubview(self.paramEmail)
         
-        // MARK: 스위츠 객체 생성
+        // MARK: 스위치 객체 생성
         self.paramUpdate = UISwitch()
         self.paramUpdate.frame = CGRect(x: 120, y: 150, width: 50, height: 30)
         
@@ -73,7 +75,16 @@ class ViewController: UIViewController {
         
         self.view.addSubview(paramUpdate)
         
+        // MARK: 스테퍼 객체 생성
+        self.paramInterval = UIStepper()
         
+        self.paramInterval.frame = CGRect(x: 120, y: 200, width: 50, height: 30)
+        self.paramInterval.minimumValue = 0         //스테퍼가 가질 수 있는 최소값
+        self.paramInterval.maximumValue = 100       //스테퍼가 가질 수 있는 최대값
+        self.paramInterval.stepValue = 1            //스테퍼의 값 변경 단위
+        self.paramInterval.value = 0                //초기값 설정
+        
+        self.view.addSubview(paramInterval)
     }
 
 
