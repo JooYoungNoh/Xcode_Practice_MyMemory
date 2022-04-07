@@ -26,6 +26,7 @@
 		73050A9127FF43EF00D5F1CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73050A9327FF43EF00D5F1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73050A9927FF6D8300D5F1CE /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		73050A9B27FF725700D5F1CE /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		73050A8427FF43EE00D5F1CE /* InputFormPractice */ = {
 			isa = PBXGroup;
 			children = (
+				73050A9B27FF725700D5F1CE /* SDMiSaeng.ttf */,
 				73050A8527FF43EE00D5F1CE /* AppDelegate.swift */,
 				73050A8727FF43EE00D5F1CE /* SceneDelegate.swift */,
 				73050A8927FF43EE00D5F1CE /* ViewController.swift */,
