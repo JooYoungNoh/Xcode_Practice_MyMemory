@@ -24,6 +24,18 @@ class ViewController: UIViewController {
     //스테퍼 값을 표현할 레이블
     var textInterval: UILabel!
     
+    
+    //스위치와 상호반응할 액션 메소드
+    @objc func presentUpdateValue(_ sender: UISwitch){
+        self.textUpdate.text = (sender.isOn == true ? "갱신함" : "갱신하지않음")
+    }
+    
+    //스테퍼와 상호반응할 액션 메소드
+    @objc func presentIntervalValue(_ sender: UIStepper){
+        self.textInterval.text = ("\(Int(sender.value))분마다")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -69,6 +81,7 @@ class ViewController: UIViewController {
         self.paramEmail.frame = CGRect(x: 120, y: 100, width: 220, height: 30)
         self.paramEmail.font = UIFont.systemFont(ofSize: 13)
         self.paramEmail.borderStyle = .roundedRect
+        self.paramEmail.autocapitalizationType = .none
         
         self.view.addSubview(self.paramEmail)
         
@@ -111,6 +124,10 @@ class ViewController: UIViewController {
         self.textInterval.text = "0분마다"
         
         self.view.addSubview(textInterval)
+        
+        // MARK: 스위치와 스테퍼 이벤트 설정
+        self.paramUpdate.addTarget(self, action: #selector(presentUpdateValue(_:)), for: .valueChanged)
+        self.paramInterval.addTarget(self, action: #selector(presentIntervalValue(_:)), for: .valueChanged)
     }
 
 
