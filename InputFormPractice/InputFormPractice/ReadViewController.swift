@@ -8,7 +8,12 @@
 import UIKit
 
 class ReadViewController: UIViewController {
-
+    //전달된 값을 저장할 변수 정의
+    var pEmail: String?
+    var pUpdate: Bool?
+    var pInterval: Double?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
