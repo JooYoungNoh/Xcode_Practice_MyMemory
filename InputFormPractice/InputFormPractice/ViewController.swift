@@ -11,7 +11,11 @@ class ViewController: UIViewController {
     
     //이메일 입력 필드
     var paramEmail: UITextField!
-
+    
+    //스위치 객체
+    var paramUpdate: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -59,6 +63,17 @@ class ViewController: UIViewController {
         self.paramEmail.borderStyle = .roundedRect
         
         self.view.addSubview(self.paramEmail)
+        
+        // MARK: 스위츠 객체 생성
+        self.paramUpdate = UISwitch()
+        self.paramUpdate.frame = CGRect(x: 120, y: 150, width: 50, height: 30)
+        
+        //스위치가 On 되어 있는 상태를 기본값으로 설정
+        self.paramUpdate.setOn(true, animated: true)
+        
+        self.view.addSubview(paramUpdate)
+        
+        
     }
 
 
