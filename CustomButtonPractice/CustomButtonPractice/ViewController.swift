@@ -9,6 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //버튼 클릭 메소드
+    @objc func btnOnClick(_ sender: Any){   //Any로 하는 경우 호출한 객체 타입 선언
+        //호출할 객체가 버튼이라면
+        if let btn = sender as? UIButton{
+            btn.setTitle("클릭되었습니다", for: .normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,6 +31,9 @@ class ViewController: UIViewController {
         
         //루트 뷰에 버튼을 추가한다
         self.view.addSubview(btn)
+        
+        //버튼의 이벤트와 메소드 btnOnClick(_:)을 연결
+        btn.addTarget(self, action: #selector(btnOnClick(_:)), for: .touchUpInside)
     }
 
 
