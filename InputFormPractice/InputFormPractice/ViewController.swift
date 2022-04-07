@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     //스위치 객체의 값을 표현할 레이블
     var textUpdate: UILabel!
     
+    //스테퍼 값을 표현할 레이블
+    var textInterval: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -98,6 +101,16 @@ class ViewController: UIViewController {
         self.textUpdate.text = "갱신함"
         
         self.view.addSubview(textUpdate)
+        
+        // MARK: 스테퍼 값을 표현할 레이블
+        self.textInterval = UILabel()
+        
+        self.textInterval.frame = CGRect(x: 250, y: 200, width: 100, height: 30)
+        self.textInterval.font = UIFont.systemFont(ofSize: 12)
+        self.textInterval.textColor = UIColor.red
+        self.textInterval.text = "0분마다"
+        
+        self.view.addSubview(textInterval)
     }
 
 
