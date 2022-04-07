@@ -16,8 +16,20 @@ class ReadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        //배경 색상 설정
+        self.view.backgroundColor = .white
+        
+        //레이블 객체 정의
+        let email = UILabel()
+        let update = UILabel()
+        let interval = UILabel()
+        
+        //레이블 객체 Frame 설정
+        email.frame = CGRect(x: 50, y: 100, width: 300, height: 30)
+        update.frame = CGRect(x: 50, y: 150, width: 300, height: 30)
+        interval.frame = CGRect(x: 50, y: 200, width: 300, height: 30)
     }
     
 
