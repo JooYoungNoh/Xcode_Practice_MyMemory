@@ -44,6 +44,24 @@ class MapAlertViewController: UIViewController {
         
         self.present(alert, animated: false)
     }
+    
+    // MARK: 슬라이더 버튼 액션 메소드
+    @objc func sliderAlert(_ sender: UIButton){
+        //콘텐츠 뷰 영역에 들어갈 뷰 컨트롤러 생성
+        let contentVC = ControlViewController()
+        
+        //경고창 객체 생성, OK 버튼 추가
+        let alert = UIAlertController(title: nil, message: "이번 글의 평점을 입력해주세용", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        
+        //컨트롤 뷰 컨트롤러를 알림창에 등록
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        self.present(alert, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +70,7 @@ class MapAlertViewController: UIViewController {
         //지도 알림창 버튼 생성
         let alertButton = UIButton(type: .system)
         
-        //버튼 속성 설정
+        //지도 알림창버튼 속성 설정
         alertButton.frame = CGRect(x: 0, y: 150, width: 100, height: 30)
         alertButton.center.x = self.view.frame.width / 2
         alertButton.setTitle("Map Alert", for: .normal)
@@ -68,6 +86,15 @@ class MapAlertViewController: UIViewController {
         imageButton.addTarget(self, action: #selector(imageAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview((imageButton))
+        
+        //슬라이더 알림창 버튼 생성
+        let sliderButton = UIButton(type: .system)
+        sliderButton.frame = CGRect(x: 0, y: 250, width: 100, height: 30)
+        sliderButton.center.x = self.view.frame.width / 2
+        sliderButton.setTitle("Slider Alert", for: .normal)
+        sliderButton.addTarget(self, action: #selector(sliderAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(sliderButton)
     }
     
 
