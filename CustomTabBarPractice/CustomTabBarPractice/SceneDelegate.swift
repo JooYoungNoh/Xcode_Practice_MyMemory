@@ -31,6 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 for tabBarItem in tabBarItems {
                     let image = UIImage(named: "checkmark")?.withRenderingMode(.alwaysOriginal)
                     tabBarItem.selectedImage = image
+                    
+                    //탭 바 아이템별 텍스트 색상 속성을 설정
+                    tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .disabled)
+                    tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.red], for: .selected)
+                    
+                    //전체 아이템의 폰트 크기를 설정
+                    tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 15)], for: .normal)
                 }
                 
                 //탭 바 아이템을 타이틀을 설정
