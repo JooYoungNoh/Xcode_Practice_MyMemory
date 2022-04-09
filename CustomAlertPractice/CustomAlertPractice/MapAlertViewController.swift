@@ -69,6 +69,9 @@ class MapAlertViewController: UIViewController {
         //콘텐츠 뷰 영역에 들어갈 뷰 컨트롤러 생성
         let contentVC = ListTableViewController()
         
+        //델리게이트 객체를 자신으로 지정
+        contentVC.delegate = self
+        
         //경고창 객체를 생성하고, OK 및 Cancel 버튼을 추가
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         
@@ -85,6 +88,12 @@ class MapAlertViewController: UIViewController {
         
     }
     
+    // MARK: 선택된 행 알려주는 메소드
+    func didSelectRowAt(indexPath: IndexPath){
+        print(">>> 선택된 행은 \(indexPath.row)입니다")
+    }
+    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
