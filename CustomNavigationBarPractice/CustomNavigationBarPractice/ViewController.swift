@@ -129,6 +129,13 @@ class ViewController: UIViewController {
         
         //레이블을 서브 뷰로 추가
         rv.addSubview(cnt)
+        
+        //more 버튼 구현
+        let more = UIButton(type: .system)
+        more.frame = CGRect(x: 50, y: 10, width: 16, height: 16)
+        more.setImage(UIImage(named: "more"), for: .normal)
+        
+        rv.addSubview(more)
     }
 }
 
