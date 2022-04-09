@@ -113,6 +113,22 @@ class ViewController: UIViewController {
         
         let rigthItem = UIBarButtonItem(customView: rv)
         self.navigationItem.rightBarButtonItem = rigthItem
+        
+        //카운터 값을 표시할 레이블 구성
+        let cnt = UILabel()
+        cnt.frame = CGRect(x: 10, y: 8, width: 20, height: 20)
+        cnt.font = UIFont.systemFont(ofSize: 10)
+        cnt.textColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.0)
+        cnt.text = "12"
+        cnt.textAlignment = .center
+        
+        //외곽선
+        cnt.layer.cornerRadius = 3              //모서리 둥글게 처리
+        cnt.layer.borderWidth = 2
+        cnt.layer.borderColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.0).cgColor
+        
+        //레이블을 서브 뷰로 추가
+        rv.addSubview(cnt)
     }
 }
 
