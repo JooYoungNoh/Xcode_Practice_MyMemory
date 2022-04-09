@@ -52,7 +52,9 @@ class MapAlertViewController: UIViewController {
         
         //경고창 객체 생성, OK 버튼 추가
         let alert = UIAlertController(title: nil, message: "이번 글의 평점을 입력해주세용", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default){ (_) in
+            print(">>>sliderValue = \(contentVC.sliderValue)")
+        }
         
         alert.addAction(okAction)
         
