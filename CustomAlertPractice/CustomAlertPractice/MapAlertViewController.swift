@@ -64,6 +64,27 @@ class MapAlertViewController: UIViewController {
         self.present(alert, animated: false)
     }
     
+    // MARK: 리스트 버튼 액션 메소드
+    @objc func listAlert(_ sender: UIButton){
+        //콘텐츠 뷰 영역에 들어갈 뷰 컨트롤러 생성
+        let contentVC = ListTableViewController()
+        
+        //경고창 객체를 생성하고, OK 및 Cancel 버튼을 추가
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        //리스트 뷰 컨트롤러를 알림창에 등록한다
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        self.present(alert, animated: false)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -97,6 +118,15 @@ class MapAlertViewController: UIViewController {
         sliderButton.addTarget(self, action: #selector(sliderAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview(sliderButton)
+        
+        //리스트 알림창 버튼 생성
+        let listButton = UIButton(type: .system)
+        listButton.frame = CGRect(x: 0, y: 300, width: 100, height: 30)
+        listButton.center.x = self.view.frame.width / 2
+        listButton.setTitle("List Alert", for: .normal)
+        listButton.addTarget(self, action: #selector(listAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(listButton)
     }
     
 
