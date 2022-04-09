@@ -107,6 +107,12 @@ class ViewController: UIViewController {
         
         //왼쪽 아이템 영역에 이미지 뷰 설정
         self.navigationItem.leftBarButtonItem = leftItem
+        
+        //오른쪽 아이템 영역에 들어갈 컨테이너 뷰
+        let rv = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 37))
+        
+        let rigthItem = UIBarButtonItem(customView: rv)
+        self.navigationItem.rightBarButtonItem = rigthItem
     }
 }
 
