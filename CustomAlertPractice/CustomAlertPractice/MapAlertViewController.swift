@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class MapAlertViewController: UIViewController {
 
@@ -19,6 +20,16 @@ class MapAlertViewController: UIViewController {
         
         alert.addAction(cancelAction)
         alert.addAction(okAction)
+        
+        //콘텐츠 뷰 영역에 들어갈 뷰 컨트롤러를 생성하고, 알림창에 등록한다
+        let contentVC = UIViewController()
+        
+        //뷰 컨트롤러에 맵킷 뷰를 추가
+        let mapkitView = MKMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        contentVC.view = mapkitView
+        
+        //뷰 컨트롤러를 알림창의 콘텐츠 뷰 컨트롤러 속성에 등록한다
+        alert.setValue(contentVC, forKey: "contentViewController")
         
         self.present(alert, animated: false)
     }
