@@ -14,7 +14,7 @@ class SecondViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        //title 레이블 생성
+        // MARK: title 레이블 생성
         let title = UILabel(frame: CGRect(x: 0, y: 100, width: 100, height: 30))
         
         //title 레이블 속성 설정
@@ -31,6 +31,10 @@ class SecondViewController: UIViewController {
         
         //뷰에 추가
         self.view.addSubview(title)
+        
+        // MARK: 탭 바 아이템에 커스텀 이미지를 등록하고 탭 이름을 입력
+        self.tabBarItem.image = UIImage(named: "photo.png")
+        self.tabBarItem.title = "photo"
     }
     
 
