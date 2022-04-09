@@ -10,7 +10,7 @@ import MapKit
 
 class MapAlertViewController: UIViewController {
 
-    //버튼 액션 메소드
+    // MARK: 지도 버튼 액션 메소드
     @objc func mapAlert(_ sender: UIButton){
         //경고창 객체를 생성하고, OK 및 Cancel 버튼을 추가
         let alert = UIAlertController(title: nil, message: "여기가 맞습니까?", preferredStyle: .alert)
@@ -30,12 +30,26 @@ class MapAlertViewController: UIViewController {
         self.present(alert, animated: false)
     }
     
+    // MARK: 이미지 버튼 액션 메소드
+    @objc func imageAlert(_ sender: UIButton){
+        //경고창 객체를 생성하고, OK 버튼을 추가한다
+        let alert = UIAlertController(title: nil, message: "이번 글의 평점은 다음과 같습니다", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        
+        //콘텐츠 뷰 영역에 들어갈 뷰 컨트롤러를 생성하고, 알림창에 등록
+        let contentVC = ImageViewController()
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        self.present(alert, animated: false)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        //버튼 생성
+        //지도 알림창 버튼 생성
         let alertButton = UIButton(type: .system)
         
         //버튼 속성 설정
@@ -45,6 +59,15 @@ class MapAlertViewController: UIViewController {
         alertButton.addTarget(self, action: #selector(mapAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview(alertButton)
+        
+        //이미지 알림창 버튼 생성
+        let imageButton = UIButton(type: .system)
+        imageButton.frame = CGRect(x: 0, y: 200, width: 100, height: 30)
+        imageButton.center.x = self.view.frame.width / 2
+        imageButton.setTitle("Image Alert", for: .normal)
+        imageButton.addTarget(self, action: #selector(imageAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview((imageButton))
     }
     
 
