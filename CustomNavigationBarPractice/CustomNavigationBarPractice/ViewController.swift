@@ -26,9 +26,16 @@ class ViewController: UIViewController {
         navigationTitle.textAlignment = .center
         navigationTitle.font = UIFont.systemFont(ofSize: 15)
         navigationTitle.text = "58개 숙소 \n 1박(1월 10일 ~ 1월 11일)"
+        navigationTitle.textColor = UIColor.white
         
         //네비게이션 타이틀에 입력
         self.navigationItem.titleView = navigationTitle
+        
+        //배경 색상 설정
+        let color = UIColor(red: 0.02, green: 0.22, blue: 0.49, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.isTranslucent = false
+        
     }
 
 }
