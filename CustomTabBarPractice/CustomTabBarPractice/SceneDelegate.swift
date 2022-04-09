@@ -27,18 +27,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 tabBarItems[1].image = UIImage(named: "rss")?.withRenderingMode(.alwaysOriginal)
                 tabBarItems[2].image = UIImage(named: "facebook")?.withRenderingMode(.alwaysOriginal)
                 
-                //탭 바 아이템 전체를 순회하면서 selectedImage 속성에 이미지를 설정
+            //탭 바 아이템 전체를 순회하면서 selectedImage 속성에 이미지를 설정
                 for tabBarItem in tabBarItems {
                     let image = UIImage(named: "checkmark")?.withRenderingMode(.alwaysOriginal)
                     tabBarItem.selectedImage = image
                     
-                    //탭 바 아이템별 텍스트 색상 속성을 설정
+                   /* //탭 바 아이템별 텍스트 색상 속성을 설정
                     tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .disabled)
                     tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.red], for: .selected)
                     
                     //전체 아이템의 폰트 크기를 설정
-                    tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 15)], for: .normal)
-                }
+                    tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 15)], for: .normal)*/
+               }
+                
+                //외형 프록시 객체를 이용하여 아이템의 타이틀 색상과 폰트 크기를 설정
+                let tbItemProxy = UITabBarItem.appearance()
+                tbItemProxy.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .disabled)
+                tbItemProxy.setTitleTextAttributes([.foregroundColor: UIColor.red], for: .selected)
+                tbItemProxy.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 15)], for: .normal)
                 
                 //탭 바 아이템을 타이틀을 설정
                 tabBarItems[0].title = "calendar"
