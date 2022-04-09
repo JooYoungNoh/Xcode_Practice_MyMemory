@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         
+        //알림창에 들어갈 뷰 컨트롤러
+        let vc = UIViewController()
+        vc.view.backgroundColor = .red
+        
+        //알림창에 뷰 컨트롤러 등록
+        alert.setValue(vc, forKey: "contentViewController")
+        
         //알림창을 화면에 표시
         self.present(alert, animated: false)
     }
