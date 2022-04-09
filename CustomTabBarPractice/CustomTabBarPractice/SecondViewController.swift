@@ -32,9 +32,7 @@ class SecondViewController: UIViewController {
         //뷰에 추가
         self.view.addSubview(title)
         
-        // MARK: 탭 바 아이템에 커스텀 이미지를 등록하고 탭 이름을 입력
-        self.tabBarItem.image = UIImage(named: "file-tree.png")
-        self.tabBarItem.title = "file"
+        
     }
     
 

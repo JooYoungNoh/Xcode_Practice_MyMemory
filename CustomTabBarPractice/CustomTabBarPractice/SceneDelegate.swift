@@ -17,6 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //루트 뷰 컨트롤러를 UITabBarController로 캐스팅
+        if let tabBarC = self.window?.rootViewController as? UITabBarController{
+            //탭 바에서 탭 바 아이템 배열을 가져온다
+            if let tabBarItems = tabBarC.tabBar.items{
+                //탭 바 아이템에 커스텀 이미지를 등록한다
+                tabBarItems[0].image = UIImage(named: "calendar")
+                tabBarItems[1].image = UIImage(named: "fill-tree")
+                tabBarItems[2].image = UIImage(named: "photo")
+                
+                //탭 바 아이템을 타이틀을 설정
+                tabBarItems[0].title = "calendar"
+                tabBarItems[1].title = "file"
+                tabBarItems[2].title = "photo"
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
