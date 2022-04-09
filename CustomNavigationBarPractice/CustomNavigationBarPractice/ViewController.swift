@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //self.initTitle()      //기본 네비게이션
-        self.initTitleNew()     //복합적인 네비게이션
+        // self.initTitleNew()     //복합적인 네비게이션
+        self.initTitleImage()
     }
 
     // MARK: 네비게이션 기능 함수
@@ -73,5 +74,12 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false   //반투명(안하면 색 안나옴
     }
 
+    // MARK: 타이틀에 이미지를 표시하는 함수
+    func initTitleImage(){
+        let image = UIImage(named: "swift_logo")
+        let imageV = UIImageView(image: image)
+        
+        self.navigationItem.titleView = imageV
+    }
 }
 
