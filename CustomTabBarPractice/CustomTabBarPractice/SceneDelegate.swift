@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let tabBarItems = tabBarC.tabBar.items{
                 //탭 바 아이템에 커스텀 이미지를 등록한다
                 tabBarItems[0].image = UIImage(named: "calendar")
-                tabBarItems[1].image = UIImage(named: "fill-tree")
+                tabBarItems[1].image = UIImage(named: "file-tree")
                 tabBarItems[2].image = UIImage(named: "photo")
                 
                 //탭 바 아이템을 타이틀을 설정
@@ -32,6 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 tabBarItems[1].title = "file"
                 tabBarItems[2].title = "photo"
             }
+            //탭 바 아이템의 이미지 색상을 변경
+            tabBarC.tabBar.tintColor = .white               //선택된 탭 바 아이템의 색상
+            tabBarC.tabBar.unselectedItemTintColor = .gray  //선택 않된 나머지 탭 바 아이템의 색상
+            
+            //탭 바에 배경 이미지를 설정
+            tabBarC.tabBar.backgroundImage = UIImage(named: "menubar-bg-mini")
         }
     }
 
