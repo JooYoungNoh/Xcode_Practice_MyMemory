@@ -12,8 +12,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.initTitle()
     }
 
+    // MARK: 네비게이션 기능 함수
+    func initTitle(){
+        
+    }
 
 }
 
