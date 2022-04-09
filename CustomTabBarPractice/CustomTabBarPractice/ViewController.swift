@@ -9,6 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //탭 바 숨기기를 위한 메소드
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let tabBar = self.tabBarController?.tabBar
+      //  tabBar?.isHidden = (tabBar?.isHidden == true) ? false : true
+        
+        UIView.animate(withDuration: TimeInterval(0.15)){
+            //alpha값이 0이면 1로, 1이면 0으로 바꾼다
+            //호출될 때마다 점점 투명해졌다가 점점 진해진다
+            tabBar?.alpha = (tabBar?.alpha == 0) ? 1 : 0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
