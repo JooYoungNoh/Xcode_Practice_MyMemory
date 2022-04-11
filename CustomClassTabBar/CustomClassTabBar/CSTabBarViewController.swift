@@ -24,6 +24,9 @@ class CSTabBarViewController: UITabBarController {
         //인자값으로 입력된 버튼만 선택된 상태로 변경한다
         sender.isSelected = true
         
+        //버튼에 설정된 태그값을 사용하여 뷰 컨트롤러를 전환
+        self.selectedIndex = sender.tag
+        
     }
     
     
@@ -76,7 +79,10 @@ class CSTabBarViewController: UITabBarController {
         //버튼의 공통 속성을 설정하고, 뷰에 추가
         self.addTabBarButton(btn: self.tabItem1, title: "첫번째 버튼", tag: 0)
         self.addTabBarButton(btn: self.tabItem2, title: "두번째 버튼", tag: 1)
-        self.addTabBarButton(btn: self.tabItem3, title: "세번째 버튼", tag: 3)
+        self.addTabBarButton(btn: self.tabItem3, title: "세번째 버튼", tag: 2)
+        
+        //처음에 첫 번째 탭이 선택되어 있도록 초기 상태를 정의
+        self.onTabBarItemClick(self.tabItem1)
         
     }
     
