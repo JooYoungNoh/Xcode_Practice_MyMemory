@@ -18,6 +18,7 @@
 		731EE64327FDEF7900250DE5 /* MemoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */; };
 		731EE64527FDF1FF00250DE5 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE64427FDF1FF00250DE5 /* MemoCell.swift */; };
 		731EE64727FDF23900250DE5 /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE64627FDF23900250DE5 /* MemoData.swift */; };
+		737554F02804A72F0082EF21 /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737554EF2804A72F0082EF21 /* CSLogButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFormViewController.swift; sourceTree = "<group>"; };
 		731EE64427FDF1FF00250DE5 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		731EE64627FDF23900250DE5 /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
+		737554EF2804A72F0082EF21 /* CSLogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLogButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				731EE64027FDEF6700250DE5 /* MemoReadViewController.swift */,
 				731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */,
 				731EE62F27FDDF0100250DE5 /* Main.storyboard */,
+				737554EF2804A72F0082EF21 /* CSLogButton.swift */,
 				731EE64427FDF1FF00250DE5 /* MemoCell.swift */,
 				731EE64627FDF23900250DE5 /* MemoData.swift */,
 				731EE63527FDDF0100250DE5 /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737554F02804A72F0082EF21 /* CSLogButton.swift in Sources */,
 				731EE64527FDF1FF00250DE5 /* MemoCell.swift in Sources */,
 				731EE64727FDF23900250DE5 /* MemoData.swift in Sources */,
 				731EE63427FDDF0100250DE5 /* MyMemory.xcdatamodeld in Sources */,
