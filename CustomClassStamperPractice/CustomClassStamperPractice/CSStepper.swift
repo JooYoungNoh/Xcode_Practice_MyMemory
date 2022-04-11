@@ -7,12 +7,12 @@
 
 import UIKit
 @IBDesignable                                    //스토리보드에서 미리보기 형식으로 처리
-public class CSStepper: UIView {
+public class CSStepper: UIControl {
     
     public var leftButton = UIButton(type: .system)
     public var rightButton = UIButton(type: .system)
     public var centerLabel = UILabel()
-    @IBInspectable public var stepValue: Int = 1
+    @IBInspectable public var stepValue: Int = 5
     @IBInspectable public var maxValue: Int = 100
     @IBInspectable public var minValue: Int = -100
     
@@ -20,6 +20,9 @@ public class CSStepper: UIView {
     public var value: Int = 0 {                  //스테퍼의 현재값을 저장할 변수
         didSet{                                  //프로퍼티의 값이 바뀌면 자동으로 호출
             self.centerLabel.text = String(value)
+            
+            //이 클래스를 사용하는 객체들에게 valueChanged 이벤트 신호를 보내준다
+            self.sendActions(for: .valueChanged)
         }
     }
     
