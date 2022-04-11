@@ -8,7 +8,7 @@
 import UIKit
 
 class CSButton: UIButton {
-    //초기화 메소드 정의
+    //초기화 메소드
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
@@ -17,6 +17,16 @@ class CSButton: UIButton {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.black.cgColor
         self.setTitle("버튼", for: .normal)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = .gray
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.black.cgColor
+        self.setTitle("코드로 생성된 버튼", for: .normal)
+        
     }
     
 }
