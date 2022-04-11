@@ -58,4 +58,25 @@ class CSButton: UIButton {
             self.setTitle("Circle Button", for: .normal)
         }
     }
+    //생성된 버튼 스타일 변경
+    var style: CSButtonType = .rect {
+        didSet{
+            switch style {
+            case .rect:
+                self.backgroundColor = .black
+                self.layer.borderColor = UIColor.black.cgColor
+                self.layer.borderWidth = 2
+                self.layer.cornerRadius = 0     //모서리는 둥글지 않게
+                self.setTitleColor(.white, for: .normal)
+                self.setTitle("Rect Button", for: .normal)
+            case .circle:
+                self.backgroundColor = .red
+                self.layer.borderColor = UIColor.black.cgColor
+                self.layer.borderWidth = 2
+                self.layer.cornerRadius = 50     //모서리는 50만큼 둥글게
+                self.setTitle("Circle Button", for: .normal)
+            }
+            
+        }
+    }
 }
