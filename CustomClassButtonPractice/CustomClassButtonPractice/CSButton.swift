@@ -41,5 +41,21 @@ class CSButton: UIButton {
     //열거형에 사용할 초기화 메소드
     convenience init(type: CSButtonType){
         self.init()
+        
+        switch type {
+        case .rect:
+            self.backgroundColor = .black
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 2
+            self.layer.cornerRadius = 0     //모서리는 둥글지 않게
+            self.setTitleColor(.white, for: .normal)
+            self.setTitle("Rect Button", for: .normal)
+        case .circle:
+            self.backgroundColor = .red
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 2
+            self.layer.cornerRadius = 50     //모서리는 50만큼 둥글게
+            self.setTitle("Circle Button", for: .normal)
+        }
     }
 }
