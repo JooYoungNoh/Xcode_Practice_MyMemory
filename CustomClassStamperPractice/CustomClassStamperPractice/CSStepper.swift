@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+@IBDesignable               //스토리보드에서 미리보기 형식으로 처리
 public class CSStepper: UIView {
     
     public var leftButton = UIButton(type: .system)
