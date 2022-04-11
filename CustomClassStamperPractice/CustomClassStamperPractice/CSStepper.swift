@@ -31,6 +31,12 @@ public class CSStepper: UIView {
         }
     }
     
+    public var bgColor: UIColor = UIColor.cyan {         //센터 영역의 색상
+        didSet {
+            self.centerLabel.backgroundColor = backgroundColor
+        }
+    }
+    
     //스토리보드에서 호출할 초기화 메소드
     public required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
@@ -68,7 +74,7 @@ public class CSStepper: UIView {
         self.centerLabel.text = String(value)
         self.centerLabel.font = UIFont.systemFont(ofSize: 16)
         self.centerLabel.textAlignment = .center
-        self.centerLabel.backgroundColor = .cyan
+        self.centerLabel.backgroundColor = self.bgColor
         self.centerLabel.layer.borderWidth = borderWidth
         self.centerLabel.layer.borderColor = borderColor
         
