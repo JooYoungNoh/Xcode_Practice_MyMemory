@@ -12,6 +12,7 @@ public class CSStepper: UIView {
     public var leftButton = UIButton(type: .system)
     public var rightButton = UIButton(type: .system)
     public var centerLabel = UILabel()
+    public var stepValue: Int = 1
     
     public var value: Int = 0 {                  //스테퍼의 현재값을 저장할 변수
         didSet{                                  //프로퍼티의 값이 바뀌면 자동으로 호출
@@ -106,6 +107,6 @@ public class CSStepper: UIView {
     // MARK: 액션 메소드
     @objc public func valueChange(_ sender: UIButton){
         //현재의 value 값에 +1 또는 -1한다
-        self.value += sender.tag
+        self.value += (sender.tag * self.stepValue)
     }
 }
