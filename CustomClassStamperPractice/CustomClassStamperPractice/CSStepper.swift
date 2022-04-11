@@ -12,26 +12,32 @@ public class CSStepper: UIView {
     public var leftButton = UIButton(type: .system)
     public var rightButton = UIButton(type: .system)
     public var centerLabel = UILabel()
-    public var stepValue: Int = 1
+    @IBInspectable public var stepValue: Int = 1
+    @IBInspectable public var maxValue: Int = 100
+    @IBInspectable public var minValue: Int = -100
     
+    @IBInspectable
     public var value: Int = 0 {                  //스테퍼의 현재값을 저장할 변수
         didSet{                                  //프로퍼티의 값이 바뀌면 자동으로 호출
             self.centerLabel.text = String(value)
         }
     }
     
+    @IBInspectable
     public var leftTitle: String = "↓"{         //좌측 버튼의 타이틀 속성
         didSet{
             self.leftButton.setTitle(leftTitle, for: .normal)
         }
     }
     
+    @IBInspectable
     public var rightTitle: String = "↑"{         //우측 버튼의 타이틀 속성
         didSet{
             self.rightButton.setTitle(rightTitle, for: .normal)
         }
     }
     
+    @IBInspectable
     public var bgColor: UIColor = UIColor.cyan {         //센터 영역의 색상
         didSet {
             self.centerLabel.backgroundColor = backgroundColor
@@ -106,6 +112,16 @@ public class CSStepper: UIView {
     
     // MARK: 액션 메소드
     @objc public func valueChange(_ sender: UIButton){
+        //스테퍼의 값을 변경하기 전에 이미 최소값과 최대값 범위를 벗어나지 않는지 체크
+        let sum = self.value + (sender.tag * self.stepValue)
+        
+        if sum > self.maxValue{
+            return
+        }
+        if sum < self.minValue{
+            return
+        }
+        
         //현재의 value 값에 +1 또는 -1한다
         self.value += (sender.tag * self.stepValue)
     }
