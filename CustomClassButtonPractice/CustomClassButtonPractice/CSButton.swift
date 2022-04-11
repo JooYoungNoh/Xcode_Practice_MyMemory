@@ -8,7 +8,7 @@
 import UIKit
 
 class CSButton: UIButton {
-    //초기화 메소드
+    //스토리보드를 이용할 때 초기화 메소드
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
@@ -18,7 +18,7 @@ class CSButton: UIButton {
         self.layer.borderColor = UIColor.black.cgColor
         self.setTitle("버튼", for: .normal)
     }
-    
+    //인자값이 있는 메소드
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,5 +28,8 @@ class CSButton: UIButton {
         self.setTitle("코드로 생성된 버튼", for: .normal)
         
     }
-    
+    //인자값이 없는 메소드
+    init(){
+        super.init(frame: CGRect.zero)
+    }
 }
