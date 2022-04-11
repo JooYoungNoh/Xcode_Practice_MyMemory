@@ -41,17 +41,6 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    //사용자가 텍스트 뷰에 뭔가를 입력하면 자동으로 호출되는 메소드
-    func textViewDidChange(_ textView: UITextView) {
-        //내용을 최대 15자리까지 읽어 subject 변수에 저장
-        let contents = textView.text as NSString
-        let length = ((contents.length>15) ? 15 : contents.length)
-        self.subject = contents.substring(with: NSRange(location: 0, length: length))
-        
-        // 네비게이션 타이틀에 표시
-        self.navigationItem.title = self.subject
-    }
-    
     // MARK: 카메라 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func pick(_ sender: UIBarButtonItem){
         
@@ -66,13 +55,34 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    //사용자가 이미지를 선택하면 자동으로 호출되는 메소드
+    // MARK: 사용자가 텍스트 뷰에 뭔가를 입력하면 자동으로 호출되는 메소드
+    func textViewDidChange(_ textView: UITextView) {
+        //내용을 최대 15자리까지 읽어 subject 변수에 저장
+        let contents = textView.text as NSString
+        let length = ((contents.length>15) ? 15 : contents.length)
+        self.subject = contents.substring(with: NSRange(location: 0, length: length))
+        
+        // 네비게이션 타이틀에 표시
+        self.navigationItem.title = self.subject
+    }
+    
+    // MARK: 사용자가 이미지를 선택하면 자동으로 호출되는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //선택된 이미지를 미리보기에 출력
         self.preview.image = info[.editedImage] as? UIImage
         
         //이미지 피커 컨트롤러를 닫는다
         picker.dismiss(animated: false)
+    }
+    
+    // MARK: 터치했을 때 네비게이션 바가 토글되는 기능을 위한 메소드
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        
+        let ts = TimeInterval(0.3)
+        UIView.animate(withDuration: ts){
+            bar?.alpha = (bar?.alpha == 0 ? 1 : 0 )
+        }
     }
     
     // MARK: ViewDidLoad
@@ -94,6 +104,7 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         style.lineSpacing = 9
         self.contentsView.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
         self.contentsView.text = ""
+        
     }
     
 
