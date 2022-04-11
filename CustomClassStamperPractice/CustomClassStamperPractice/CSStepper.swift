@@ -59,6 +59,10 @@ public class CSStepper: UIView {
         self.addSubview(self.leftButton)
         self.addSubview(self.rightButton)
         self.addSubview(self.centerLabel)
+        
+        //버튼의 터치 이벤트와 액션 메소드 연결
+        self.leftButton.addTarget(self, action: #selector(valueChange(_:)), for: .touchUpInside)
+        self.rightButton.addTarget(self, action: #selector(valueChange(_:)), for: .touchUpInside)
     }
 
     // MARK: 뷰의 크기를 변경할 때 호출하는 메소드
@@ -74,5 +78,11 @@ public class CSStepper: UIView {
         self.leftButton.frame = CGRect(x: 0, y: 0, width: btnWidth, height: btnWidth)
         self.rightButton.frame = CGRect(x: btnWidth + lbWidth, y: 0, width: btnWidth, height: btnWidth)
         self.centerLabel.frame = CGRect(x: btnWidth, y: 0, width: lbWidth, height: btnWidth)
+    }
+    
+    // MARK: 액션 메소드
+    @objc public func valueChange(_ sender: UIButton){
+        //현재의 value 값에 +1 또는 -1한다
+        self.value += sender.tag
     }
 }
