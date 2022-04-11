@@ -80,7 +80,20 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         self.contentsView.delegate = self       //텍스트뷰 델리게이트 정의
 
-        // Do any additional setup after loading the view.
+        //배경 이미지 설정
+        let bgImage = UIImage(named: "memo-background")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        //텍스트 뷰의 기본 속성
+        self.contentsView.layer.borderWidth = 0
+        self.contentsView.layer.borderColor = UIColor.clear.cgColor
+        self.contentsView.backgroundColor = UIColor.clear
+        
+        //줄 간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.contentsView.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
+        self.contentsView.text = ""
     }
     
 
