@@ -6,15 +6,28 @@
 //
 
 import UIKit
-@IBDesignable               //스토리보드에서 미리보기 형식으로 처리
+@IBDesignable                                    //스토리보드에서 미리보기 형식으로 처리
 public class CSStepper: UIView {
     
     public var leftButton = UIButton(type: .system)
     public var rightButton = UIButton(type: .system)
     public var centerLabel = UILabel()
-    public var value: Int = 0 {             //스테퍼의 현재값을 저장할 변수
-        didSet{                             //프로퍼티의 값이 바뀌면 자동으로 호출
+    
+    public var value: Int = 0 {                  //스테퍼의 현재값을 저장할 변수
+        didSet{                                  //프로퍼티의 값이 바뀌면 자동으로 호출
             self.centerLabel.text = String(value)
+        }
+    }
+    
+    public var leftTitle: String = "↓"{         //좌측 버튼의 타이틀 속성
+        didSet{
+            self.leftButton.setTitle(leftTitle, for: .normal)
+        }
+    }
+    
+    public var rightTitle: String = "↑"{         //우측 버튼의 타이틀 속성
+        didSet{
+            self.rightButton.setTitle(rightTitle, for: .normal)
         }
     }
     
@@ -37,7 +50,7 @@ public class CSStepper: UIView {
         let borderColor = UIColor.blue.cgColor      //테두리 색상값
         //좌측 다운 버튼 속성 설정
         self.leftButton.tag = -1
-        self.leftButton.setTitle("↓", for: .normal)
+        self.leftButton.setTitle(self.leftTitle, for: .normal)
         self.leftButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         
         self.leftButton.layer.borderWidth = borderWidth
@@ -45,7 +58,7 @@ public class CSStepper: UIView {
         
         //우측 업 버튼 속성 설정
         self.rightButton.tag = 1
-        self.rightButton.setTitle("↑", for: .normal)
+        self.rightButton.setTitle(self.rightTitle, for: .normal)
         self.rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         
         self.rightButton.layer.borderWidth = borderWidth
