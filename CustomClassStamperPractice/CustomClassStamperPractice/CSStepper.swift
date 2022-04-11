@@ -26,7 +26,7 @@ public class CSStepper: UIView {
         self.setup()
     }
     
-    //스테퍼의 기본 속성 정의
+    // MARK: 스테퍼의 기본 속성 정의
     private func setup(){
         
         let borderWidth: CGFloat = 0.5              //테두리 두께값
@@ -61,4 +61,18 @@ public class CSStepper: UIView {
         self.addSubview(self.centerLabel)
     }
 
+    // MARK: 뷰의 크기를 변경할 때 호출하는 메소드
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //버튼의 너비 = 뷰 높이
+        let btnWidth = self.frame.height
+        
+        //레이블의 너비 = 뷰 전체 크기 - 양쪽 버튼의 너비 합
+        let lbWidth = self.frame.width - (btnWidth * 2)
+        
+        self.leftButton.frame = CGRect(x: 0, y: 0, width: btnWidth, height: btnWidth)
+        self.rightButton.frame = CGRect(x: btnWidth + lbWidth, y: 0, width: btnWidth, height: btnWidth)
+        self.centerLabel.frame = CGRect(x: btnWidth, y: 0, width: lbWidth, height: btnWidth)
+    }
 }
