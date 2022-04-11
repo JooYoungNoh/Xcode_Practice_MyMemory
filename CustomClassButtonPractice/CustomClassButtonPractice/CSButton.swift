@@ -7,6 +7,12 @@
 
 import UIKit
 
+//버튼 타입을 결정하는 열거형
+public enum CSButtonType{
+    case rect
+    case circle
+}
+
 class CSButton: UIButton {
     //스토리보드를 이용할 때 초기화 메소드
     required init(coder aDecoder: NSCoder) {
@@ -31,5 +37,9 @@ class CSButton: UIButton {
     //인자값이 없는 메소드
     init(){
         super.init(frame: CGRect.zero)
+    }
+    //열거형에 사용할 초기화 메소드
+    convenience init(type: CSButtonType){
+        self.init()
     }
 }
