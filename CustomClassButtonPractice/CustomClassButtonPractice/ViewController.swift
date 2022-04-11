@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         circleButton.frame = CGRect(x: 200, y: 150, width: 150, height: 30)
         self.view.addSubview(circleButton)
         
-        circleButton.style = .rect
+        // circleButton.style = .rect  //생성된 버튼 스타일 바꾸기
     }
 
 
