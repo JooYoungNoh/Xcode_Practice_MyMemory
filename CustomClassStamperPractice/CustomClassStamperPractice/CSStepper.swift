@@ -12,7 +12,11 @@ public class CSStepper: UIView {
     public var leftButton = UIButton(type: .system)
     public var rightButton = UIButton(type: .system)
     public var centerLabel = UILabel()
-    public var value: Int = 0               //스테퍼의 현재값을 저장할 변수
+    public var value: Int = 0 {             //스테퍼의 현재값을 저장할 변수
+        didSet{                             //프로퍼티의 값이 바뀌면 자동으로 호출
+            self.centerLabel.text = String(value)
+        }
+    }
     
     //스토리보드에서 호출할 초기화 메소드
     public required init?(coder aDecoder: NSCoder){
