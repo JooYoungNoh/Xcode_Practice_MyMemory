@@ -32,7 +32,7 @@ class SiderBarTableViewController: UITableViewController {
         let identifier = "menucell"
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        //재사용 큐에 menucell키로 등록된 테이블 뷰 셀이 없다면 새로 추가
+        //재사용 큐에 menucell키로 등록된 테이블 뷰 셀이 없다면 새로 추가(스크롤이 필요없다면 사용안해도 됨)
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
         }
