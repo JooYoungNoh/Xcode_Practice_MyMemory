@@ -327,7 +327,7 @@
         <!--Profile View Controller-->
         <scene sceneID="Zbx-xz-23i">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="Tyb-iB-wrn" customClass="ProfileViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tyb-iB-wrn" customClass="ProfileViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="asN-zh-HI8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -380,7 +380,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WiH-O0-9Qb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="DvY-4l-Hx6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileVC" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="DvY-4l-Hx6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pnf-2A-gfY">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
