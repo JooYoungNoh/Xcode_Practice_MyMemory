@@ -86,6 +86,9 @@
                     <navigationItem key="navigationItem" title="Title" id="5ed-cP-2ih">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="sidemenu" id="JM5-N7-9I1"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sideBarButton" destination="JM5-N7-9I1" id="L0g-ck-o3U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rJ-uu-uke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
