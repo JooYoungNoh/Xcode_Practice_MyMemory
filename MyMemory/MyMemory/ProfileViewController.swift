@@ -25,6 +25,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         //뒤로가기 버튼
         let backButton = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(close(_:)))
         self.navigationItem.leftBarButtonItem = backButton
+        
+        //프로필 사진에 들어갈 기본 이미지
+        let image = UIImage(named: "account")
+        
+        //프로필 이미지 처리
+        self.profileImage.image = image
+        self.profileImage.frame.size = CGSize(width: 100, height: 100)
+        self.profileImage.center = CGPoint(x: self.view.frame.width / 2, y: 130)
+        
+        //프로필 이미지 둥글게 만들기
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
+        self.profileImage.layer.borderWidth = 0
+        self.profileImage.layer.masksToBounds = true
+        
+        //루트 뷰에 추가
+        self.view.addSubview(self.profileImage)
     }
     
     // MARK: 테이블 뷰 메소드
