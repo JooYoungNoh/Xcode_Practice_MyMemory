@@ -41,6 +41,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //루트 뷰에 추가
         self.view.addSubview(self.profileImage)
+        
+        //테이블 뷰
+        self.tv.frame = CGRect(x: 0, y: self.profileImage.frame.origin.y + self.profileImage.frame.size.height + 20, width: self.view.frame.width, height: 100)
+        self.tv.dataSource = self
+        self.tv.delegate = self
+        
+        self.view.addSubview(self.tv)
     }
     
     // MARK: 테이블 뷰 메소드
@@ -49,8 +56,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
+        cell.accessoryType = .disclosureIndicator
+        
+        switch indexPath.row {
+        case 0 :
+            cell.textLabel?.text = "이름"
+            cell.detailTextLabel?.text = "아이유"
+        case 1 :
+            cell.textLabel?.text = "계정"
+            cell.detailTextLabel?.text = "sqlpro@naver.com"
+        default :
+            ()
+        }
         return cell
     }
 
