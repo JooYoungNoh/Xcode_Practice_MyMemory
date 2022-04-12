@@ -21,9 +21,49 @@ class SideBarTableViewController: UITableViewController {
         UIImage(named: "icon06"),
     ]
     
+    //헤더에 들어갈 레이블 및 이미지 객체 생성
+    let nameLabel = UILabel()
+    let emailLabel = UILabel()
+    let profileImage = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //테이블 뷰의 헤더 역할을 할 뷰를 정의
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        headerView.backgroundColor = .brown
+        
+        //테이블 뷰의 헤더 뷰로 지정
+        self.tableView.tableHeaderView = headerView
+        
+        //이름 레이블의 속성 정의 후 헤더 뷰에 추가
+        self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
+        self.nameLabel.text = "아이유"
+        self.nameLabel.textColor = .white
+        self.nameLabel.font = UIFont.systemFont(ofSize: 15)
+        self.nameLabel.backgroundColor = .clear
+        
+        headerView.addSubview(self.nameLabel)
+        
+        //이메일 레이블의 속성 정의 후 헤더 뷰에 추가
+        self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30)
+        self.emailLabel.text = "sqlpro@naver.com"
+        self.emailLabel.textColor = .white
+        self.emailLabel.font = UIFont.systemFont(ofSize: 11)
+        self.emailLabel.backgroundColor = .clear
+        
+        headerView.addSubview(self.emailLabel)
+        
+        //이미지를 구현 후 헤더 뷰에 추가
+        let defaultProfile = UIImage(named: "account")
+        self.profileImage.image = defaultProfile
+        self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
+        
+        //이미지를 둥글게 만들기
+        self.profileImage.layer.cornerRadius = (self.profileImage.frame.width / 2)                                                              //반원 형태로 라운딩
+        self.profileImage.layer.borderWidth = 0                      //테두리 두께 0으로
+        self.profileImage.layer.masksToBounds = true                 //마스크 효과
+        
+        headerView.addSubview(self.profileImage)
     }
 
     // MARK: - Table view data source
