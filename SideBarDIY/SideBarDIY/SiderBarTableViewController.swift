@@ -16,6 +16,23 @@ class SiderBarTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        //계정 정보를 표시할 레이블 객체를 정의
+        let accountLable = UILabel()
+        accountLable.frame = CGRect(x: 10, y: 30, width: self.view.frame.width, height: 30)
+        
+        accountLable.text = "sqlpro@naver.com"
+        accountLable.textColor = .white
+        accountLable.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        //테이블 뷰 상단에 표시될 뷰를 정의
+        let v = UIView()
+        v.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70)
+        v.backgroundColor = .brown
+        v.addSubview(accountLable)
+        
+        //생성된 뷰 v를 테이블 헤더 뷰 영역에 등록
+        self.tableView.tableHeaderView = v
 
     }
 
