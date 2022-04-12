@@ -20,7 +20,7 @@ class RevealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setupView()
     }
     
     //초기 화면 설정 메소드
