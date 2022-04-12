@@ -8,38 +8,45 @@
 import UIKit
 
 class SideBarTableViewController: UITableViewController {
-
+    //목록 데이터 배열
+    let titles: [String] = ["새글 작성하기", "친구 새글", "달력으로 보기", "공지사항", "통계", "계정 관리"]
+    
+    //아이콘 데이터 배열
+    let icons = [
+        UIImage(named: "icon01"),
+        UIImage(named: "icon02"),
+        UIImage(named: "icon03"),
+        UIImage(named: "icon04"),
+        UIImage(named: "icon05"),
+        UIImage(named: "icon06"),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.titles.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        //재사용 큐에서 테이블 셀을 꺼내 온다, 없으면 새로 생성
+        let identifier = "menucell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
 
-        // Configure the cell...
-
+        //타이틀과 이미지를 대입
+        cell.textLabel?.text = self.titles[indexPath.row]
+        cell.imageView?.image = self.icons[indexPath.row]
+        
+        //폰트 설정
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+    
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
