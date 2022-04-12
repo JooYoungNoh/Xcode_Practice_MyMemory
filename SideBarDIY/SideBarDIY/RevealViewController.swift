@@ -79,7 +79,20 @@ class RevealViewController: UIViewController {
     
     //사이드 바를 여는 메소드
     func openSideBar(_ complete: ( () -> Void)? ) {
+        //앞에서 정의했던 메소드들을 실행
+        self.getSideView()
+        self.setShadowEffect(shadow: true, offset: -2)
         
+        //애니메이션 옵션 및 실행
+        let options = UIView.AnimationOptions([.curveEaseInOut, .beginFromCurrentState])
+        
+        UIView.animate(withDuration: TimeInterval(self.SLIDE_TIME), delay: TimeInterval(0), options: options, animations: {
+            self.contentVC?.view.frame = CGRect(x: self.SIDEBAR_WIDTH, y: 0, width: self.view.frame.width, height: self.view.frame.height)}, completion: {
+                if $0 == true {
+                    self.isSideBarShowing = true            //열린 상태로 플래그를 변경
+                    complete?()
+                }
+            })
     }
     
     //사이드 바를 닫는 메소드
