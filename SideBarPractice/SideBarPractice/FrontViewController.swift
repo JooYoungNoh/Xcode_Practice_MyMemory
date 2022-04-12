@@ -9,6 +9,9 @@ import UIKit
 
 class FrontViewController: UIViewController {
 
+    @IBOutlet weak var sideBarButton: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
