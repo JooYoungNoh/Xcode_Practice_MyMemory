@@ -20,6 +20,7 @@
 		731EE64727FDF23900250DE5 /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE64627FDF23900250DE5 /* MemoData.swift */; };
 		737554F02804A72F0082EF21 /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737554EF2804A72F0082EF21 /* CSLogButton.swift */; };
 		737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737A153B2805E82100AD2B8A /* SWRevealViewController.m */; };
+		737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		737A153A2805E82000AD2B8A /* MyMemory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMemory-Bridging-Header.h"; sourceTree = "<group>"; };
 		737A153B2805E82100AD2B8A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		737A153C2805E82100AD2B8A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				731EE62927FDDF0100250DE5 /* AppDelegate.swift */,
 				731EE62B27FDDF0100250DE5 /* SceneDelegate.swift */,
 				731EE62D27FDDF0100250DE5 /* MemoListViewController.swift */,
+				737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */,
 				731EE64027FDEF6700250DE5 /* MemoReadViewController.swift */,
 				731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */,
 				731EE62F27FDDF0100250DE5 /* Main.storyboard */,
@@ -174,6 +177,7 @@
 				737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */,
 				731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */,
 				731EE62C27FDDF0100250DE5 /* SceneDelegate.swift in Sources */,
+				737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
