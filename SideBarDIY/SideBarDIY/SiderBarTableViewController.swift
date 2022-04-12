@@ -8,38 +8,44 @@
 import UIKit
 
 class SiderBarTableViewController: UITableViewController {
-
+    //메뉴 제목 배열
+    let titles: [String] = ["메뉴 1", "메뉴 2", "메뉴 3", "메뉴 4", "메뉴 5"]
+    
+    //메뉴 아이콘 배열
+    let icons: [String] = ["icon01", "icon02", "icon03", "icon04", "icon05"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.titles.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        //재사용 큐로부터 테이블 셀을 꺼내온다
+        let identifier = "menucell"
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
+        //재사용 큐에 menucell키로 등록된 테이블 뷰 셀이 없다면 새로 추가
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
+        }
+        
+        //타이틀과 이미지를 대입
+        cell.textLabel?.text = self.titles[indexPath.row]
+        cell.imageView?.image = UIImage(named: self.icons[indexPath.row])
+        
+        //폰트 설정
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
