@@ -18,14 +18,34 @@ class FrontViewController: UIViewController {
         
         //버튼을 내바게이션 바의 왼쪽영역에 추가
         self.navigationItem.leftBarButtonItem = btnSideBar
+        
+        //회면 끝에서 다른 쪽으로 패닝하는 제스처를 정의
+        let dragLeft = UIScreenEdgePanGestureRecognizer(
+            target: self,
+            action: #selector(moveSide(_:)))
+        dragLeft.edges = UIRectEdge.left                //시작 모서리는 왼쪽
+        self.view.addGestureRecognizer(dragLeft)        //뷰에 제스처 객체 등록
+        
+        //화면을 스와이프하는 제스처 정의
+        let dragRight = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(moveSide(_:)))
+        dragRight.direction = .left                      //방향은 왼쪽
+        self.view.addGestureRecognizer(dragRight)
     }
     
     //사용자 액션에 따라 델리게이트 메소드를 호출
     @objc func moveSide(_ sender: Any){
-        if self.delegate?.isSideBarShowing == false {
-            self.delegate?.openSideBar(nil)                 //사이드 바를 연다
-        } else {
-            self.delegate?.closeSideBar(nil)                //사이드 바를 닫는다
+        if sender is UIScreenEdgePanGestureRecognizer{
+            self.delegate?.openSideBar(nil)
+        } else if sender is UISwipeGestureRecognizer{
+            self.delegate?.closeSideBar(nil)
+        } else if sender is UIBarButtonItem{
+            if self.delegate?.isSideBarShowing == false {
+                self.delegate?.openSideBar(nil)                 //사이드 바를 연다
+            } else {
+                self.delegate?.closeSideBar(nil)                //사이드 바를 닫는다
+            }
         }
     }
     
