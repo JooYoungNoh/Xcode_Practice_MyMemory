@@ -54,7 +54,7 @@
         <!--첫 화면-->
         <scene sceneID="sEX-BW-hgP">
             <objects>
-                <viewController storyboardIdentifier="sw_front" id="Hhq-ad-zGr" customClass="FrontViewController" customModule="SideBarDIY" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hhq-ad-zGr" customClass="FrontViewController" customModule="SideBarDIY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ica-ZF-vxK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

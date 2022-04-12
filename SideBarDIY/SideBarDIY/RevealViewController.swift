@@ -43,12 +43,38 @@ class RevealViewController: UIViewController {
     
     //사이드 바의 뷰를 읽어오는 메소드
     func getSideView(){
+        guard self.sideVC == nil else { return }
         
+        //사이드 바 컨트롤러 객체를 읽어온다
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "sw_rear") else { return }
+        
+        //다른 메소드에서도 참조 할 수 있도록 sideVC 속성에 저장
+        self.sideVC = vc
+        
+        //읽어온 사이드 바 컨트롤러 객체를 컨테이너 뷰 컨트롤러에 연결
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        
+        //프론트 컨트롤러에 부모 뷰 컨트롤러가 바뀌었음을 알려준다
+        vc.didMove(toParent: self)
+        
+        //프론트 컨트롤러의 뷰를 제일 위로 올린다
+        self.view.bringSubviewToFront((self.contentVC?.view)!)
     }
     
     //콘텐츠 뷰에 그림자 효과를 주는 메소드
     func setShadowEffect(shadow: Bool, offset: CGFloat){
-        
+        //그림자 효과 설정
+        if (shadow == true) {
+            self.contentVC?.view.layer.masksToBounds = false
+            self.contentVC?.view.layer.cornerRadius = 10            //그림자 모서리 둥글기
+            self.contentVC?.view.layer.shadowOpacity = 0.8          //그림자 투명도
+            self.contentVC?.view.layer.shadowColor = UIColor.black.cgColor
+            self.contentVC?.view.layer.shadowOffset = CGSize(width: offset, height: offset)
+        } else {
+            self.contentVC?.view.layer.cornerRadius = 0.0
+            self.contentVC?.view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        }
     }
     
     //사이드 바를 여는 메소드
