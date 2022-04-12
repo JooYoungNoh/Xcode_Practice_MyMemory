@@ -267,7 +267,7 @@
         <!--메모 작성-->
         <scene sceneID="2L6-to-sPJ">
             <objects>
-                <viewController id="Ece-zj-mHj" customClass="MemoFormViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoForm" id="Ece-zj-mHj" customClass="MemoFormViewController" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mMz-ys-rZZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
