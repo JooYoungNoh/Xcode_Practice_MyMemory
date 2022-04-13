@@ -63,6 +63,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //내비게이션 바 숨김 처리
         self.navigationController?.navigationBar.isHidden = true
+        
+        //최초 화면로딩시 로그인 로그아웃 버튼 구현
+        self.drawBtn()
     }
     
     // MARK: 액션 매소드
@@ -94,6 +97,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //로그인 성공시
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
+                self.drawBtn()
             } else {
                 let msg = "로그인에 실패하였습니다"
                 let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
@@ -116,9 +120,41 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //로그아웃시
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
+                self.drawBtn()
             }
         })
         self.present(alert, animated: false)
+    }
+    
+    //MARK: 일반 메소드
+    //로그인 로그아웃 버튼을 만들어줄 메소드
+    func drawBtn(){
+        //버튼을 감쌀 뷰를 정의
+        let v = UIView()
+        v.frame.size.width = self.view.frame.width
+        v.frame.size.height = 40
+        v.frame.origin.x = 0
+        v.frame.origin.y = self.tv.frame.origin.y + self.tv.frame.height
+        v.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+        
+        self.view.addSubview(v)
+        
+        //버튼을 정의
+        let btn = UIButton(type: .system)
+        btn.frame.size.width = 100
+        btn.frame.size.height = 30
+        btn.center.x = v.frame.size.width / 2
+        btn.center.y = v.frame.size.height / 2
+        
+        //로그인 상태일 때는 로그아웃 버튼을, 로그아웃 상태일 때는 로그인 보튼을
+        if self.uinfo.isLogin == true {
+            btn.setTitle("로그아웃", for: .normal)
+            btn.addTarget(self, action: #selector(doLogout(_:)), for: .touchUpInside)
+        } else {
+            btn.setTitle("로그인", for: .normal)
+            btn.addTarget(self, action: #selector(doLogin(_:)), for: .touchUpInside)
+        }
+        v.addSubview(btn)
     }
     
     // MARK: 테이블 뷰 메소드
