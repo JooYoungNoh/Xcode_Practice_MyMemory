@@ -13,6 +13,7 @@
 		73CD2B4128073CA500C719F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CD2B4028073CA500C719F1 /* Assets.xcassets */; };
 		73CD2B4428073CA500C719F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CD2B4228073CA500C719F1 /* LaunchScreen.storyboard */; };
 		73CD2B4C28073D7C00C719F1 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD2B4B28073D7C00C719F1 /* ListTableViewController.swift */; };
+		73CD2B4E28075C0900C719F1 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73CD2B4D28075C0900C719F1 /* UserInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		73CD2B4328073CA500C719F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73CD2B4528073CA500C719F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CD2B4B28073D7C00C719F1 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ../../UserDefaultsPractice/UserDefaultsPractice/ListTableViewController.swift; sourceTree = "<group>"; };
+		73CD2B4D28075C0900C719F1 /* UserInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				73CD2B3728073CA500C719F1 /* AppDelegate.swift */,
 				73CD2B3928073CA500C719F1 /* SceneDelegate.swift */,
 				73CD2B4B28073D7C00C719F1 /* ListTableViewController.swift */,
+				73CD2B4D28075C0900C719F1 /* UserInfo.plist */,
 				73CD2B3D28073CA500C719F1 /* Main.storyboard */,
 				73CD2B4028073CA500C719F1 /* Assets.xcassets */,
 				73CD2B4228073CA500C719F1 /* LaunchScreen.storyboard */,
@@ -128,6 +131,7 @@
 				73CD2B4428073CA500C719F1 /* LaunchScreen.storyboard in Resources */,
 				73CD2B4128073CA500C719F1 /* Assets.xcassets in Resources */,
 				73CD2B3F28073CA500C719F1 /* Main.storyboard in Resources */,
+				73CD2B4E28075C0900C719F1 /* UserInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
