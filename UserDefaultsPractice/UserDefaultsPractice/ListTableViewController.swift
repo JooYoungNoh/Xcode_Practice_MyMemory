@@ -15,13 +15,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var account: UITextField!
     
     //피커 뷰에 사용될 이메일 배열
-    var accountList: [String] = [
-    "sqlpro@naver.com",
-    "webmaster@rubypaper.co.kr",
-    "abc1@gmail.com",
-    "abc2@gmail.com",
-    "abc3@gmail.com"
-    ]
+    var accountList: [String] = []
     
     @IBAction func changeGender(_ sender: UISegmentedControl){
         let value = sender.selectedSegmentIndex
@@ -97,14 +91,44 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         //가변 폭 버튼 정의
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
+        //신규 계정 등록 버튼
+        let newEmail = UIBarButtonItem()
+        newEmail.title = "New"
+        newEmail.target = self
+        newEmail.action = #selector(newAccount(_:))
+        
         //버튼을 툴 바에 추가
-        toolBar.setItems([flexSpace, done], animated: true)
+        toolBar.setItems([newEmail, flexSpace, done], animated: true)
     }
     
     @objc func pickerDone(_ sender: Any){
         self.view.endEditing(true)          //입력 뷰를 닫음
     }
 
+    @objc func newAccount(_ sender: Any){
+        self.view.endEditing(true)                      //입력창 닫기
+        
+        //알림창 객체 생성
+        let alert = UIAlertController(title: "새 계정을 입력하세여", message: nil, preferredStyle: .alert)
+        
+        //입력폼 추가
+        alert.addTextField(){
+            $0.placeholder = "ex) abc@gmail.com"
+        }
+        
+        //버튼 및 액션 정의
+        alert.addAction(UIAlertAction(title: "OK", style: .default){ (_) in
+            if let account2 = alert.textFields?[0].text{
+                //계정 목록 배열에 추가
+                self.accountList.append(account2)
+                //계정 텍스트 필드에 표시
+                self.account.text = account2
+            }
+            })
+        //알림창 오픈
+        self.present(alert, animated: false)
+        
+    }
     // MARK: - Picker view 메소드
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
