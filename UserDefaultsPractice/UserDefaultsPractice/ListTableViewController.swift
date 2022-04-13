@@ -14,11 +14,19 @@ class ListTableViewController: UITableViewController {
     @IBOutlet weak var married: UISwitch!
     
     @IBAction func changeGender(_ sender: UISegmentedControl){
+        let value = sender.selectedSegmentIndex
         
+        let plist = UserDefaults.standard       //기본 저장소 객체 가져오기
+        plist.set(value, forKey: "gender")      //값을 저장
+        plist.synchronize()                     //동기화
     }
     
     @IBAction func changeMarried(_ sender: UISwitch){
+        let value = sender.isOn
         
+        let plist = UserDefaults.standard       //기본 저장소 객체 가져오기
+        plist.set(value, forKey: "married")      //값을 저장
+        plist.synchronize()                     //동기화
     }
     
     override func viewDidLoad() {
