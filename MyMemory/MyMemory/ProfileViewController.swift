@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let uinfo = UserInfoManager()               //개인 정보 관리 매니저
     let profileImage = UIImageView()            //프로필 사진 이미지
@@ -66,6 +66,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //최초 화면로딩시 로그인 로그아웃 버튼 구현
         self.drawBtn()
+        
+        //프로필 사진 터치시 프로필 사진 변경
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
+        self.profileImage.addGestureRecognizer(tap)
+        self.profileImage.isUserInteractionEnabled = true
     }
     
     // MARK: 액션 매소드
@@ -124,6 +129,43 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         })
         self.present(alert, animated: false)
+    }
+    
+    //프로필 사진의 소스 타입을 선택하는 메소드
+    @objc func profile(_ sender: UIButton){
+        //로그인되어 있지 않을 경ㅇ우에는 프로필 이미지 등록을 막고 대신 로그인창 띄움
+        guard self.uinfo.account != nil else{
+            self.doLogin(self)
+            return
+        }
+        
+        let alert = UIAlertController(title: nil, message: "사진을 가져올 곳을 선택해주세요", preferredStyle: .actionSheet)
+        
+        //카메라를 사용할 수 있으면 (시뮬레이터 불가)
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            alert.addAction(UIAlertAction(title: "카메라", style: .default){(_) in
+                self.imgPicker(.camera)
+            })
+        }
+        
+        //저장된 앨범을 사용할 수 있으면
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            alert.addAction(UIAlertAction(title: "앨범", style: .default){(_) in
+                self.imgPicker(.savedPhotosAlbum)
+            })
+        }
+        
+        //포토 라이브러리를 사용할 수 있으면
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default){(_) in
+                self.imgPicker(.photoLibrary)
+            })
+        }
+        //취소 버튼 추가
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
+        //액션시트 창 실행
+        self.present(alert, animated: true)
     }
     
     //MARK: 일반 메소드
@@ -189,14 +231,27 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: 이미지 피커 메소드
+    // 이미지를 가져올 장소(?) 카메라 앨범 등 선택 메소드
+    func imgPicker(_ source: UIImagePickerController.SourceType){
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true)
+        
     }
-    */
+    //이미지 선택하면 호출될 메소드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            self.uinfo.profile = img
+            self.profileImage.image = img
+        }
+        //이미지 피커 컨트롤창 닫기
+        picker.dismiss(animated: true)
+    }
+    
+    
+    
 
 }
