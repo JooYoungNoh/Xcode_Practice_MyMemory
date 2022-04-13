@@ -65,6 +65,9 @@ class ListTableViewController: UITableViewController {
                 let plist = UserDefaults.standard
                 plist.set(value, forKey: "name")
                 plist.synchronize()
+                
+                //수정된 값을 이름 레이블에도 적용
+                self.nameLabel.text = value
             })
             
             //알림창을 띄운다
