@@ -73,4 +73,29 @@ class UserInfoManager{
         }
     }
     
+    // MARK: 메소드
+    func login(account: String, passwd: String) -> Bool {
+        // TODO: 이 부분은 나중에 서버와 연동되는 코드로 대체될 예정
+        if account.isEqual("sqlpro@naver.com") && passwd.isEqual("1234"){
+            let ud = UserDefaults.standard
+            ud.set(100, forKey: UserInfoKey.loginId)
+            ud.set(account, forKey: UserInfoKey.account)
+            ud.set("재은 씨", forKey: UserInfoKey.name)
+            ud.synchronize()
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func logout() -> Bool {
+        let ud = UserDefaults.standard
+        ud.removeObject(forKey: UserInfoKey.loginId)
+        ud.removeObject(forKey: UserInfoKey.account)
+        ud.removeObject(forKey: UserInfoKey.name)
+        ud.removeObject(forKey: UserInfoKey.profile)
+        ud.synchronize()
+        return true
+    }
+    
 }
