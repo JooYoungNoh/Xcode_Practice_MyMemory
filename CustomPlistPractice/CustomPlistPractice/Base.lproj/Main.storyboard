@@ -36,6 +36,7 @@
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc1@gmail.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSV-KL-eC9">
                                                     <rect key="frame" x="170" y="12.666666666666664" width="200" height="19"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -57,28 +58,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESJ-G6-0mM">
-                                                    <rect key="frame" x="20" y="11" width="170" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="6u8-Q3-zwz"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="20" y="11" width="29.666666666666671" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpn-gp-3cP">
-                                                    <rect key="frame" x="220" y="10" width="150" height="21"/>
+                                                    <rect key="frame" x="325.66666666666669" y="10" width="44.333333333333314" height="21"/>
                                                     <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="40L-fi-99p" appends="YES" id="ups-bq-02Y"/>
+                                                        <outletCollection property="gestureRecognizers" destination="niv-nG-WqI" appends="YES" id="3FN-Bz-JUm"/>
                                                     </connections>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Vpn-gp-3cP" secondAttribute="trailing" constant="20" id="12V-ZT-ITP"/>
-                                                <constraint firstItem="Vpn-gp-3cP" firstAttribute="leading" secondItem="ESJ-G6-0mM" secondAttribute="trailing" constant="30" id="BQA-DG-9QS"/>
                                                 <constraint firstItem="Vpn-gp-3cP" firstAttribute="top" secondItem="Iiz-bH-pXX" secondAttribute="top" constant="10" id="nlR-X0-ZS4"/>
                                                 <constraint firstItem="ESJ-G6-0mM" firstAttribute="leading" secondItem="Iiz-bH-pXX" secondAttribute="leadingMargin" id="qKE-d2-9sP"/>
                                                 <constraint firstItem="ESJ-G6-0mM" firstAttribute="top" secondItem="Iiz-bH-pXX" secondAttribute="topMargin" id="uZa-OQ-efs"/>
@@ -105,7 +102,7 @@
                                                         <segment title="여"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="changeGender:" destination="YMD-20-UoC" eventType="valueChanged" id="34C-TH-dkD"/>
+                                                        <action selector="changeGender:" destination="YMD-20-UoC" eventType="valueChanged" id="iFL-fM-RmC"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -133,7 +130,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-nS-V30">
                                                     <rect key="frame" x="321" y="6" width="51" height="31"/>
                                                     <connections>
-                                                        <action selector="changeMarried:" destination="YMD-20-UoC" eventType="valueChanged" id="S8E-dM-zGU"/>
+                                                        <action selector="changeMarried:" destination="YMD-20-UoC" eventType="valueChanged" id="IBY-W1-dNM"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -155,16 +152,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="xSn-o5-YMS"/>
                     <connections>
-                        <outlet property="account" destination="VSV-KL-eC9" id="Bcw-Ld-c45"/>
-                        <outlet property="gender" destination="Wgs-Xs-2uf" id="kha-8G-sdy"/>
-                        <outlet property="married" destination="2HR-nS-V30" id="cMM-b9-1kM"/>
-                        <outlet property="nameLabel" destination="Vpn-gp-3cP" id="Z0a-Rz-gCu"/>
+                        <outlet property="account" destination="VSV-KL-eC9" id="xOS-a8-XWd"/>
+                        <outlet property="gender" destination="Wgs-Xs-2uf" id="5O4-jk-vIv"/>
+                        <outlet property="married" destination="2HR-nS-V30" id="CGp-qR-XTW"/>
+                        <outlet property="nameLabel" destination="Vpn-gp-3cP" id="r8N-R5-kQc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Srs-Ma-Pfs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="40L-fi-99p">
+                <tapGestureRecognizer id="niv-nG-WqI">
                     <connections>
-                        <action selector="edit:" destination="YMD-20-UoC" id="c4q-kE-vJc"/>
+                        <action selector="edit:" destination="YMD-20-UoC" id="0QY-yD-Mca"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

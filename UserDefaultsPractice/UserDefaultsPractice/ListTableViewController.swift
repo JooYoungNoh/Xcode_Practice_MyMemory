@@ -14,6 +14,15 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var married: UISwitch!
     @IBOutlet weak var account: UITextField!
     
+    //피커 뷰에 사용될 이메일 배열
+    var accountList: [String] = [
+    "sqlpro@naver.com",
+    "webmaster@rubypaper.co.kr",
+    "abc1@gmail.com",
+    "abc2@gmail.com",
+    "abc3@gmail.com"
+    ]
+    
     @IBAction func changeGender(_ sender: UISegmentedControl){
         let value = sender.selectedSegmentIndex
         
@@ -79,15 +88,21 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0
+        return self.accountList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return nil
+        return self.accountList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        //선택한 계정값을 텍스트 필드에 입력
+        let account1 = self.accountList[row]
+        self.account.text = account1
+        
+        //입력 뷰를 닫음
+        self.view.endEditing(true)
     }
     
     // MARK: - Table view data source
