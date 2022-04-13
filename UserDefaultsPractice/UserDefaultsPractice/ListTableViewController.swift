@@ -14,6 +14,8 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var married: UISwitch!
     @IBOutlet weak var account: UITextField!
     
+    var defaultPList: NSDictionary!
+    
     //피커 뷰에 사용될 이메일 배열
     var accountList: [String] = []
     
@@ -28,7 +30,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
          let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
          let path = paths[0] as NSString
          let plist = path.strings(byAppendingPaths: [customPlist])[0]
-         let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPList)
          
          data.setValue(value, forKey: "gender")
          data.write(toFile: plist, atomically: true)
@@ -44,7 +46,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
          let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
          let path = paths[0] as NSString
          let plist = path.strings(byAppendingPaths: [customPlist])[0]
-         let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+         let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPList)
          
          data.setValue(value, forKey: "married")
          data.write(toFile: plist, atomically: true)
@@ -56,6 +58,13 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     // MARK: ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //메인 번들에 UserInfo가 포함되어 있으면 이를 읽어와 딕셔너리에 담는다
+        if let defaultPListPath = Bundle.main.path(forResource: "UserInfo", ofType: "plist"){
+            self.defaultPList = NSDictionary(contentsOfFile: defaultPListPath)
+        }
+        
+        
+        
         let plist = UserDefaults.standard
         let picker = UIPickerView()
         
@@ -96,7 +105,8 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         toolBar.setItems([newEmail, flexSpace, done], animated: true)
         
         //저장된 계정 선택 정보 읽어오기
-        let accountList = plist.array(forKey: "accountList") as? [String] ?? [String]()
+        let accountList1 = plist.array(forKey: "accountList") as? [String] ?? [String]()
+        self.accountList = accountList1
         
         if let account3 = plist.string(forKey: "selectedAccount"){
             self.account.text = account3
@@ -127,6 +137,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         //내비게이션 바에 newAccount 메소드와 연결된 버튼 추가
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newAccount(_:)))
         
+        self.navigationItem.title = "사용자 정보"
         self.navigationItem.rightBarButtonItem = addButton
     }
     
@@ -248,7 +259,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
                 let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
                 let path = paths[0] as NSString
                 let plist = path.strings(byAppendingPaths: [customPlist])[0]
-                let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+                let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPList)
                 
                 data.setValue(value, forKey: "name")
                 data.write(toFile: plist, atomically: true)
