@@ -60,7 +60,13 @@ class ListTableViewController: UITableViewController {
             //버튼 및 액션 추가
             alert.addAction(UIAlertAction(title: "OK", style: .default){ (_) in
               //사용자가 OK 버튼을 누르면 입력 필드에 입력된 값을 저장
+                let value = alert.textFields?[0].text
+                
+                let plist = UserDefaults.standard
+                plist.set(value, forKey: "name")
+                plist.synchronize()
             })
+            
             //알림창을 띄운다
             self.present(alert, animated: false, completion: nil)
         }
