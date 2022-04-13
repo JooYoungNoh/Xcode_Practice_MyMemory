@@ -136,6 +136,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
                 //계정 목록을 통째로 저장
                 let plist = UserDefaults.standard
                 plist.set(self.accountList, forKey: "accountList")
+                plist.set(account2, forKey: "selectedAccount")
                 plist.synchronize()
             }
             })
@@ -162,6 +163,10 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         let account1 = self.accountList[row]
         self.account.text = account1
         
+        //사용자가 계정을 입력하면 이 계정을 선택한 것으로 간주하고 저장
+        let plist = UserDefaults.standard
+        plist.set(account1, forKey: "selectedAccount")
+        plist.synchronize()
     }
     
     // MARK: - Table view data source
