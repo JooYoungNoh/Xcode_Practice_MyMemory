@@ -155,6 +155,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="xSn-o5-YMS"/>
                     <connections>
+                        <outlet property="account" destination="VSV-KL-eC9" id="Bcw-Ld-c45"/>
                         <outlet property="gender" destination="Wgs-Xs-2uf" id="kha-8G-sdy"/>
                         <outlet property="married" destination="2HR-nS-V30" id="cMM-b9-1kM"/>
                         <outlet property="nameLabel" destination="Vpn-gp-3cP" id="Z0a-Rz-gCu"/>

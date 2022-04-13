@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gender: UISegmentedControl!
     @IBOutlet weak var married: UISwitch!
+    @IBOutlet weak var account: UITextField!
     
     @IBAction func changeGender(_ sender: UISegmentedControl){
         let value = sender.selectedSegmentIndex
@@ -58,14 +59,37 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let plist = UserDefaults.standard
+        let picker = UIPickerView()
         
         //저장된 값을 꺼내어 각 컨트롤러 설정
         self.nameLabel.text = plist.string(forKey: "name")
         self.gender.selectedSegmentIndex = plist.integer(forKey: "gender")
         self.married.isOn = plist.bool(forKey: "married")
+        
+        //피커 뷰의 델리게이트 객체 지정
+        picker.delegate = self
+        //account 텍스트 필드 입력 방식을 가상 키보드 대신 피커 뷰로 설정
+        self.account.inputView = picker
 
     }
 
+    // MARK: - Picker view 메소드
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return nil
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
