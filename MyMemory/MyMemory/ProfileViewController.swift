@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.bringSubviewToFront(self.profileImage)
         
         //프로필 사진에 들어갈 기본 이미지
-        let image = UIImage(named: "account")
+        let image = self.uinfo.profile
         
         //프로필 이미지 처리
         self.profileImage.image = image
@@ -91,7 +91,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let passwd = loginAlert.textFields?[1].text ?? ""           //두번째 필드 비밀번호
             
             if self.uinfo.login(account: account, passwd: passwd){
-                //TODO: 로그인 성공시 처리할 내용이 들어갈 예정
+                //로그인 성공시
+                self.tv.reloadData()
+                self.profileImage.image = self.uinfo.profile
             } else {
                 let msg = "로그인에 실패하였습니다"
                 let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
@@ -111,8 +113,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .destructive){(_) in
             if self.uinfo.logout(){
-                //로그아웃시 처리할 내용이 들어갈 예정
-                
+                //로그아웃시
+                self.tv.reloadData()
+                self.profileImage.image = self.uinfo.profile
             }
         })
         self.present(alert, animated: false)
@@ -133,14 +136,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch indexPath.row {
         case 0 :
             cell.textLabel?.text = "이름"
-            cell.detailTextLabel?.text = "아이유"
+            cell.detailTextLabel?.text = self.uinfo.name ?? "Login please"
         case 1 :
             cell.textLabel?.text = "계정"
-            cell.detailTextLabel?.text = "sqlpro@naver.com"
+            cell.detailTextLabel?.text = self.uinfo.account ?? "Login please"
         default :
             ()
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.uinfo.isLogin == false{
+            //로그인 되어있지 않으면 로그인 창을 띄워줌
+            self.doLogin(self.tv)
+        }
     }
 
     /*
