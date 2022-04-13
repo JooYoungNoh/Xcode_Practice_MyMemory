@@ -31,6 +31,12 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let plist = UserDefaults.standard
+        
+        //저장된 값을 꺼내어 각 컨트롤러 설정
+        self.nameLabel.text = plist.string(forKey: "name")
+        self.gender.selectedSegmentIndex = plist.integer(forKey: "gender")
+        self.married.isOn = plist.bool(forKey: "married")
 
     }
 
