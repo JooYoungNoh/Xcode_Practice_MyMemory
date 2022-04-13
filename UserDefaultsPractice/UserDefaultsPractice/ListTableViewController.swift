@@ -33,7 +33,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         plist.synchronize()                     //동기화
     }
     
-    @IBAction func edit(_ sender: UITapGestureRecognizer){
+   /* @IBAction func edit(_ sender: UITapGestureRecognizer){
         //입력이 가능한 알림창을 띄워 이름을 수정할 수 있도록 한다
         let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
         
@@ -57,7 +57,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         
         //알림창을 띄운다
         self.present(alert, animated: false, completion: nil)
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,7 +164,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-      /*  if indexPath.row == 0 {                     //첫번째 셀이 클릭되었을 때만
+        if indexPath.row == 1 {                     //두번째 셀이 클릭되었을 때만
             //입력이 가능한 알림창을 띄워 이름을 수정할 수 있도록 한다
             let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
             
@@ -188,7 +188,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             
             //알림창을 띄운다
             self.present(alert, animated: false, completion: nil)
-        }*/
+        }
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

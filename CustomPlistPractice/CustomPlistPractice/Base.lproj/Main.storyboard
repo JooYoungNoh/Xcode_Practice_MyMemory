@@ -69,9 +69,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="niv-nG-WqI" appends="YES" id="3FN-Bz-JUm"/>
-                                                    </connections>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -159,11 +156,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Srs-Ma-Pfs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="niv-nG-WqI">
-                    <connections>
-                        <action selector="edit:" destination="YMD-20-UoC" id="0QY-yD-Mca"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1457" y="38"/>
         </scene>
