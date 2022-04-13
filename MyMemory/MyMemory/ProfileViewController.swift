@@ -9,13 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let uinfo = UserInfoManager()               //개인 정보 관리 매니저
     let profileImage = UIImageView()            //프로필 사진 이미지
     let tv = UITableView()                      //프로필 목록
     
-    //뒤로 가는 메소드
-    @objc func close(_ sender: Any){
-        self.presentingViewController?.dismiss(animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +63,59 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //내비게이션 바 숨김 처리
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    // MARK: 액션 매소드
+    //뒤로 가는 메소드
+    @objc func close(_ sender: Any){
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    //로그인 창을 표시할 메소드
+    @objc func doLogin(_ sender: Any){
+        let loginAlert = UIAlertController(title: "LOGIN", message: nil, preferredStyle: .alert)
+        
+        //알림창에 들어갈 입력폼 추가
+        loginAlert.addTextField() {(tf) in
+            tf.placeholder = "Your Account"
+        }
+        loginAlert.addTextField() {(tf) in
+            tf.placeholder = "Password"
+            tf.isSecureTextEntry = true
+        }
+        
+        //알림창 버튼 추가
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        loginAlert.addAction(UIAlertAction(title: "Login", style: .destructive){(_) in
+            let account = loginAlert.textFields?[0].text ?? ""          //첫번째 필드 계정
+            let passwd = loginAlert.textFields?[1].text ?? ""           //두번째 필드 비밀번호
+            
+            if self.uinfo.login(account: account, passwd: passwd){
+                //TODO: 로그인 성공시 처리할 내용이 들어갈 예정
+            } else {
+                let msg = "로그인에 실패하였습니다"
+                let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: false)
+            }
+        })
+        self.present(loginAlert, animated: false)
+    }
+    
+    //로그아웃 창을 표시할 메소드
+    @objc func doLogout(_ sender: Any){
+        let msg = "로그아웃하시겠습니까?"
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        alert.addAction(UIAlertAction(title: "확인", style: .destructive){(_) in
+            if self.uinfo.logout(){
+                //로그아웃시 처리할 내용이 들어갈 예정
+                
+            }
+        })
+        self.present(alert, animated: false)
     }
     
     // MARK: 테이블 뷰 메소드
