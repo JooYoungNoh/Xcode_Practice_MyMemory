@@ -22,6 +22,7 @@
 		737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737A153B2805E82100AD2B8A /* SWRevealViewController.m */; };
 		737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */; };
 		737A15412805F29300AD2B8A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A15402805F29300AD2B8A /* ProfileViewController.swift */; };
+		73DBEA142807748A00EFA924 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DBEA132807748A00EFA924 /* UserInfoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		737A153C2805E82100AD2B8A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		737A15402805F29300AD2B8A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		73DBEA132807748A00EFA924 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				731EE62D27FDDF0100250DE5 /* MemoListViewController.swift */,
 				737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */,
 				737A15402805F29300AD2B8A /* ProfileViewController.swift */,
+				73DBEA132807748A00EFA924 /* UserInfoManager.swift */,
 				731EE64027FDEF6700250DE5 /* MemoReadViewController.swift */,
 				731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */,
 				731EE62F27FDDF0100250DE5 /* Main.storyboard */,
@@ -181,6 +184,7 @@
 				737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */,
 				731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */,
 				731EE62C27FDDF0100250DE5 /* SceneDelegate.swift in Sources */,
+				73DBEA142807748A00EFA924 /* UserInfoManager.swift in Sources */,
 				737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
