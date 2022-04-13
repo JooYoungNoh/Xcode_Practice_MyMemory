@@ -124,6 +124,10 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             self.married.isEnabled = false
         }
         
+        //내비게이션 바에 newAccount 메소드와 연결된 버튼 추가
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newAccount(_:)))
+        
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
     // MARK: 액션 메소드
