@@ -17,6 +17,8 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     //피커 뷰에 사용될 이메일 배열
     var accountList: [String] = []
     
+    
+    // MARK: 아웃렛 액션
     @IBAction func changeGender(_ sender: UISegmentedControl){
         let value = sender.selectedSegmentIndex
         
@@ -59,6 +61,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         self.present(alert, animated: false, completion: nil)
     }*/
     
+    // MARK: ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         let plist = UserDefaults.standard
@@ -101,6 +104,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         toolBar.setItems([newEmail, flexSpace, done], animated: true)
     }
     
+    // MARK: 액션 메소드
     @objc func pickerDone(_ sender: Any){
         self.view.endEditing(true)          //입력 뷰를 닫음
     }
@@ -123,6 +127,16 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
                 self.accountList.append(account2)
                 //계정 텍스트 필드에 표시
                 self.account.text = account2
+                
+                //컨트롤 값을 모두 초기화한다
+                self.nameLabel.text = ""
+                self.gender.selectedSegmentIndex = 0
+                self.married.isOn = false
+                
+                //계정 목록을 통째로 저장
+                let plist = UserDefaults.standard
+                plist.set(self.accountList, forKey: "accountList")
+                plist.synchronize()
             }
             })
         //알림창 오픈
