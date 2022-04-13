@@ -29,6 +29,32 @@ class ListTableViewController: UITableViewController {
         plist.synchronize()                     //동기화
     }
     
+    @IBAction func edit(_ sender: UITapGestureRecognizer){
+        //입력이 가능한 알림창을 띄워 이름을 수정할 수 있도록 한다
+        let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
+        
+        //입력필드 추가
+        alert.addTextField(){
+            $0.text = self.nameLabel.text      //name 레이블의 텍스트를 입력폼의 기본값으로 넣어준다
+        }
+        
+        //버튼 및 액션 추가
+        alert.addAction(UIAlertAction(title: "OK", style: .default){ (_) in
+          //사용자가 OK 버튼을 누르면 입력 필드에 입력된 값을 저장
+            let value = alert.textFields?[0].text
+            
+            let plist = UserDefaults.standard
+            plist.set(value, forKey: "name")
+            plist.synchronize()
+            
+            //수정된 값을 이름 레이블에도 적용
+            self.nameLabel.text = value
+        })
+        
+        //알림창을 띄운다
+        self.present(alert, animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let plist = UserDefaults.standard
@@ -54,7 +80,7 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 0 {                     //첫번째 셀이 클릭되었을 때만
+      /*  if indexPath.row == 0 {                     //첫번째 셀이 클릭되었을 때만
             //입력이 가능한 알림창을 띄워 이름을 수정할 수 있도록 한다
             let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
             
@@ -78,7 +104,7 @@ class ListTableViewController: UITableViewController {
             
             //알림창을 띄운다
             self.present(alert, animated: false, completion: nil)
-        }
+        }*/
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
