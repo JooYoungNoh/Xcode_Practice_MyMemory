@@ -102,6 +102,13 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         
         //버튼을 툴 바에 추가
         toolBar.setItems([newEmail, flexSpace, done], animated: true)
+        
+        //저장된 계정 선택 정보 읽어오기
+        let accountList = plist.array(forKey: "accountList") as? [String] ?? [String]()
+        
+        if let account3 = plist.string(forKey: "selectedAccount"){
+            self.account.text = account3
+        }
     }
     
     // MARK: 액션 메소드
@@ -197,9 +204,16 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
               //사용자가 OK 버튼을 누르면 입력 필드에 입력된 값을 저장
                 let value = alert.textFields?[0].text
                 
-                let plist = UserDefaults.standard
-                plist.set(value, forKey: "name")
-                plist.synchronize()
+               //이름 저장 로직 시작
+                let customPlist = "\(self.account.text!).plist"
+                
+                let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                let path = paths[0] as NSString
+                let plist = path.strings(byAppendingPaths: [customPlist])[0]
+                let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+                
+                data.setValue(value, forKey: "name")
+                data.write(toFile: plist, atomically: true)
                 
                 //수정된 값을 이름 레이블에도 적용
                 self.nameLabel.text = value
