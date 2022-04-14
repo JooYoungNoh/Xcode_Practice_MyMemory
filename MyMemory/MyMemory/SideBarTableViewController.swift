@@ -8,6 +8,8 @@
 import UIKit
 
 class SideBarTableViewController: UITableViewController {
+    let uinfo = UserInfoManager()               //개인 정보 관리 매니저
+    
     //목록 데이터 배열
     let titles: [String] = ["새글 작성하기", "친구 새글", "달력으로 보기", "공지사항", "통계", "계정 관리"]
     
@@ -26,6 +28,13 @@ class SideBarTableViewController: UITableViewController {
     let emailLabel = UILabel()
     let profileImage = UIImageView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //테이블 뷰의 헤더 역할을 할 뷰를 정의
@@ -37,7 +46,6 @@ class SideBarTableViewController: UITableViewController {
         
         //이름 레이블의 속성 정의 후 헤더 뷰에 추가
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "아이유"
         self.nameLabel.textColor = .white
         self.nameLabel.font = UIFont.systemFont(ofSize: 15)
         self.nameLabel.backgroundColor = .clear
@@ -46,7 +54,6 @@ class SideBarTableViewController: UITableViewController {
         
         //이메일 레이블의 속성 정의 후 헤더 뷰에 추가
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30)
-        self.emailLabel.text = "sqlpro@naver.com"
         self.emailLabel.textColor = .white
         self.emailLabel.font = UIFont.systemFont(ofSize: 11)
         self.emailLabel.backgroundColor = .clear
@@ -54,8 +61,6 @@ class SideBarTableViewController: UITableViewController {
         headerView.addSubview(self.emailLabel)
         
         //이미지를 구현 후 헤더 뷰에 추가
-        let defaultProfile = UIImage(named: "account")
-        self.profileImage.image = defaultProfile
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         
         //이미지를 둥글게 만들기

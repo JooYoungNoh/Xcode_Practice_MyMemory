@@ -20,7 +20,8 @@ class UserInfoManager{
     var loginId: Int{
         get{
             return UserDefaults.standard.integer(forKey: UserInfoKey.loginId)
-        } set(v){
+        }
+        set (v){
             let ud = UserDefaults.standard
             ud.set(v, forKey: UserInfoKey.loginId)
             ud.synchronize()
@@ -30,7 +31,8 @@ class UserInfoManager{
     var account: String?{
         get{
             return UserDefaults.standard.string(forKey: UserInfoKey.account)
-        } set(v){
+        }
+        set (v){
             let ud = UserDefaults.standard
             ud.set(v, forKey: UserInfoKey.account)
             ud.synchronize()
@@ -51,14 +53,15 @@ class UserInfoManager{
         get{
             let ud = UserDefaults.standard
             if let _profile = ud.data(forKey: UserInfoKey.profile){
-                return UIImage(data:  _profile)
+                return UIImage(data: _profile)
             } else {
                 return UIImage(named: "account")
             }
-        } set(v){
+        }
+        set(v){
             if v != nil {
                 let ud = UserDefaults.standard
-                ud.set(v!.pngData(), forKey: UserInfoKey.loginId)
+                ud.set(v!.pngData(), forKey: UserInfoKey.profile)
                 ud.synchronize()
             }
         }
