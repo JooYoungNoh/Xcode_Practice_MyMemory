@@ -57,9 +57,9 @@ class UserInfoManager{
             }
         } set(v){
             if v != nil {
-            let ud = UserDefaults.standard
-            ud.set(v, forKey: UserInfoKey.loginId)
-            ud.synchronize()
+                let ud = UserDefaults.standard
+                ud.set(v!.pngData(), forKey: UserInfoKey.loginId)
+                ud.synchronize()
             }
         }
     }

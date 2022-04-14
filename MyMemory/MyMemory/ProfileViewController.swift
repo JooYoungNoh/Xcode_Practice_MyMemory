@@ -244,7 +244,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //이미지 선택하면 호출될 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            self.uinfo.profile = img // <- 얘 없애면 되긴함 근데 저장 해야되서 없애면 안됨
+            self.uinfo.profile = img
             self.profileImage.image = img
         }
         //이미지 피커 컨트롤창 닫기
