@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIViewController {
-    var tutorialSB = UIStoryboard {
+    var tutorialSB: UIStoryboard {
         return UIStoryboard(name: "Tutorial", bundle: Bundle.main)
     }
     
