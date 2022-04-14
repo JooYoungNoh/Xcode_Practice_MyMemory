@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		730C5203280899050046BA74 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C5202280899050046BA74 /* Tutorial.storyboard */; };
 		730C520528089AAA0046BA74 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C520428089AAA0046BA74 /* Utils.swift */; };
+		730C520728089B810046BA74 /* TutorialContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C520628089B810046BA74 /* TutorialContentsViewController.swift */; };
 		731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62927FDDF0100250DE5 /* AppDelegate.swift */; };
 		731EE62C27FDDF0100250DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62B27FDDF0100250DE5 /* SceneDelegate.swift */; };
 		731EE62E27FDDF0100250DE5 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62D27FDDF0100250DE5 /* MemoListViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		730C5202280899050046BA74 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		730C520428089AAA0046BA74 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		730C520628089B810046BA74 /* TutorialContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsViewController.swift; sourceTree = "<group>"; };
 		731EE62627FDDF0100250DE5 /* MyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731EE62927FDDF0100250DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731EE62B27FDDF0100250DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				731EE63527FDDF0100250DE5 /* Assets.xcassets */,
 				730C5202280899050046BA74 /* Tutorial.storyboard */,
 				730C520428089AAA0046BA74 /* Utils.swift */,
+				730C520628089B810046BA74 /* TutorialContentsViewController.swift */,
 				731EE63727FDDF0100250DE5 /* LaunchScreen.storyboard */,
 				731EE63A27FDDF0100250DE5 /* Info.plist */,
 				731EE63227FDDF0100250DE5 /* MyMemory.xcdatamodeld */,
@@ -188,6 +191,7 @@
 				731EE62E27FDDF0100250DE5 /* MemoListViewController.swift in Sources */,
 				731EE64327FDEF7900250DE5 /* MemoFormViewController.swift in Sources */,
 				737A15412805F29300AD2B8A /* ProfileViewController.swift in Sources */,
+				730C520728089B810046BA74 /* TutorialContentsViewController.swift in Sources */,
 				731EE64127FDEF6700250DE5 /* MemoReadViewController.swift in Sources */,
 				737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */,
 				731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */,
