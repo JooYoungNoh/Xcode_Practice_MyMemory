@@ -73,6 +73,38 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.profileImage.isUserInteractionEnabled = true
     }
     
+    // MARK: 테이블 뷰 메소드
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+        
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
+        cell.accessoryType = .disclosureIndicator
+        
+        switch indexPath.row {
+        case 0 :
+            cell.textLabel?.text = "이름"
+            cell.detailTextLabel?.text = self.uinfo.name ?? "Login please"
+        case 1 :
+            cell.textLabel?.text = "계정"
+            cell.detailTextLabel?.text = self.uinfo.account ?? "Login please"
+        default :
+            ()
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.uinfo.isLogin == false{
+            //로그인 되어있지 않으면 로그인 창을 띄워줌
+            self.doLogin(self.tv)
+        }
+    }
+    
     // MARK: 액션 매소드
     //뒤로 가는 메소드
     @objc func close(_ sender: Any){
@@ -199,37 +231,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         v.addSubview(btn)
     }
     
-    // MARK: 테이블 뷰 메소드
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
-        
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
-        cell.accessoryType = .disclosureIndicator
-        
-        switch indexPath.row {
-        case 0 :
-            cell.textLabel?.text = "이름"
-            cell.detailTextLabel?.text = self.uinfo.name ?? "Login please"
-        case 1 :
-            cell.textLabel?.text = "계정"
-            cell.detailTextLabel?.text = self.uinfo.account ?? "Login please"
-        default :
-            ()
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.uinfo.isLogin == false{
-            //로그인 되어있지 않으면 로그인 창을 띄워줌
-            self.doLogin(self.tv)
-        }
-    }
 
     //MARK: 이미지 피커 메소드
     // 이미지를 가져올 장소(?) 카메라 앨범 등 선택 메소드
