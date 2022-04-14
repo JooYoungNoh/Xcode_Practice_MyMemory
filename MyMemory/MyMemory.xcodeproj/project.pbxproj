@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730C5203280899050046BA74 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C5202280899050046BA74 /* Tutorial.storyboard */; };
+		730C520528089AAA0046BA74 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C520428089AAA0046BA74 /* Utils.swift */; };
 		731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62927FDDF0100250DE5 /* AppDelegate.swift */; };
 		731EE62C27FDDF0100250DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62B27FDDF0100250DE5 /* SceneDelegate.swift */; };
 		731EE62E27FDDF0100250DE5 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EE62D27FDDF0100250DE5 /* MemoListViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730C5202280899050046BA74 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		730C520428089AAA0046BA74 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		731EE62627FDDF0100250DE5 /* MyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731EE62927FDDF0100250DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731EE62B27FDDF0100250DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				731EE64427FDF1FF00250DE5 /* MemoCell.swift */,
 				731EE64627FDF23900250DE5 /* MemoData.swift */,
 				731EE63527FDDF0100250DE5 /* Assets.xcassets */,
+				730C5202280899050046BA74 /* Tutorial.storyboard */,
+				730C520428089AAA0046BA74 /* Utils.swift */,
 				731EE63727FDDF0100250DE5 /* LaunchScreen.storyboard */,
 				731EE63A27FDDF0100250DE5 /* Info.plist */,
 				731EE63227FDDF0100250DE5 /* MyMemory.xcdatamodeld */,
@@ -162,6 +168,7 @@
 			files = (
 				731EE63927FDDF0100250DE5 /* LaunchScreen.storyboard in Resources */,
 				731EE63627FDDF0100250DE5 /* Assets.xcassets in Resources */,
+				730C5203280899050046BA74 /* Tutorial.storyboard in Resources */,
 				731EE63127FDDF0100250DE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +183,7 @@
 				737554F02804A72F0082EF21 /* CSLogButton.swift in Sources */,
 				731EE64527FDF1FF00250DE5 /* MemoCell.swift in Sources */,
 				731EE64727FDF23900250DE5 /* MemoData.swift in Sources */,
+				730C520528089AAA0046BA74 /* Utils.swift in Sources */,
 				731EE63427FDDF0100250DE5 /* MyMemory.xcdatamodeld in Sources */,
 				731EE62E27FDDF0100250DE5 /* MemoListViewController.swift in Sources */,
 				731EE64327FDEF7900250DE5 /* MemoFormViewController.swift in Sources */,
