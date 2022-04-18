@@ -13,6 +13,7 @@
 		7379BE02280DF087008C6190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE00280DF087008C6190 /* Main.storyboard */; };
 		7379BE04280DF088008C6190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE03280DF088008C6190 /* Assets.xcassets */; };
 		7379BE07280DF088008C6190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE05280DF088008C6190 /* LaunchScreen.storyboard */; };
+		7379BE10280DF0D3008C6190 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7379BE0F280DF0D3008C6190 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		7379BE03280DF088008C6190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7379BE06280DF088008C6190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7379BE08280DF088008C6190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7379BE0F280DF0D3008C6190 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		7379BE11280DF104008C6190 /* SQLite3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SQLite3-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7379BE10280DF0D3008C6190 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				7379BDF9280DF087008C6190 /* SQLite3Practice */,
 				7379BDF8280DF087008C6190 /* Products */,
+				7379BE0E280DF0D3008C6190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +68,17 @@
 				7379BE03280DF088008C6190 /* Assets.xcassets */,
 				7379BE05280DF088008C6190 /* LaunchScreen.storyboard */,
 				7379BE08280DF088008C6190 /* Info.plist */,
+				7379BE11280DF104008C6190 /* SQLite3-Bridging-Header.h */,
 			);
 			path = SQLite3Practice;
+			sourceTree = "<group>";
+		};
+		7379BE0E280DF0D3008C6190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7379BE0F280DF0D3008C6190 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jooyoung.SQLite3Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SQLite3-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -329,6 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jooyoung.SQLite3Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SQLite3-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
