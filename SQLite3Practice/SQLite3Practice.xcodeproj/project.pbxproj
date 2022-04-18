@@ -14,6 +14,7 @@
 		7379BE04280DF088008C6190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE03280DF088008C6190 /* Assets.xcassets */; };
 		7379BE07280DF088008C6190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE05280DF088008C6190 /* LaunchScreen.storyboard */; };
 		7379BE10280DF0D3008C6190 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7379BE0F280DF0D3008C6190 /* libsqlite3.tbd */; };
+		7379BE15280E04D2008C6190 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7379BE14280E04D2008C6190 /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7379BE08280DF088008C6190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7379BE0F280DF0D3008C6190 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7379BE11280DF104008C6190 /* SQLite3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SQLite3-Bridging-Header.h"; sourceTree = "<group>"; };
+		7379BE14280E04D2008C6190 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				7379BE05280DF088008C6190 /* LaunchScreen.storyboard */,
 				7379BE08280DF088008C6190 /* Info.plist */,
 				7379BE11280DF104008C6190 /* SQLite3-Bridging-Header.h */,
+				7379BE14280E04D2008C6190 /* db.sqlite */,
 			);
 			path = SQLite3Practice;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				7379BE07280DF088008C6190 /* LaunchScreen.storyboard in Resources */,
 				7379BE04280DF088008C6190 /* Assets.xcassets in Resources */,
 				7379BE02280DF087008C6190 /* Main.storyboard in Resources */,
+				7379BE15280E04D2008C6190 /* db.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

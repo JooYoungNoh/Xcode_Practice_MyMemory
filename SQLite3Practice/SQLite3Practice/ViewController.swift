@@ -17,7 +17,15 @@ class ViewController: UIViewController {
         //앱 내 문서 디렉터리 경로에서 SQLite DB 파일을 찾는다
         let fileMgr = FileManager()                 //파일 매니저 객체를 생성
         let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!                                      //앱 내의 문서 디렉터리 경로를 찾고 이를 URL객체로 생성
-        let dbPath = docPathURL.appendingPathComponent("db.sqlite").path                                                       //URL객체에 "db.sqlite"파일 경로를 추가 후 경로 생성
+        let dbPath = docPathURL.appendingPathComponent("db.sqlite").path                                                        //URL객체에 "db.sqlite"파일 경로를 추가 후 경로 생성
+        
+        //let dbPath = "/Users/nohjooyoung/db.sqlite"         //파일 생성 되는지 간접적 체험
+      
+        //dbPath 경로에 파일이 없다면 앱 번들에 만들어 둔 db.sqlite를 가져와 복사
+        if fileMgr.fileExists(atPath: dbPath) == false{
+            let dbSource = Bundle.main.path(forResource: "db", ofType: "sqlite")
+            try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
+        }
         
         let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"   //테이블 생성
         
