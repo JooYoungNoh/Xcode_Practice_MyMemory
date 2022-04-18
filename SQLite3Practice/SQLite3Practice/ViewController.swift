@@ -11,9 +11,47 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        let dbPath = self.getDBPath()
+        self.dbExecute(dbPath: dbPath)
+    }
+    
+    //DB 관련 작업
+    func dbExecute(dbPath: String){
         var db: OpaquePointer? = nil                //SQLite 연결 정보를 담을 객체
         var stmt: OpaquePointer? = nil              //컴파일된 SQL을 담을 객체
         
+        let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"   //테이블 생성
+        
+        
+        //DB를 연결, 이 과정에서 db객체가 생성
+        guard sqlite3_open(dbPath, &db) == SQLITE_OK else {              //데이터베이스가 연결되었다면
+            print("Datebase Connect Fail")
+            return
+        }
+        
+        defer {                                             //DB 연결을 종료, db 객체가 해제
+            print("Close Database Connection")
+            sqlite3_close(db)
+        }
+        //SQL 구문을 전달할 준비, 이 과정에서 컴파일된 SQL 구문 객체가 생성
+        guard sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK else {   //SQL컴파일이 잘 끝났다면
+            print("Prepare Statement Fail")
+            return
+        }
+        
+        defer{                                      //컴파일된 SQL 구문 객체를 삭제, 이 과정에서 stmt가 해제
+            print("Finalize Statement")
+            sqlite3_finalize(stmt)
+        }
+        
+        //컴파일된 SQL 구문 객체를 DB에 전달
+        if sqlite3_step(stmt) == SQLITE_DONE {
+            print("Create Table Success!")
+        }
+    }
+    //DB 경로 찾기 매소드
+    func getDBPath() -> String{
         //앱 내 문서 디렉터리 경로에서 SQLite DB 파일을 찾는다
         let fileMgr = FileManager()                 //파일 매니저 객체를 생성
         let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!                                      //앱 내의 문서 디렉터리 경로를 찾고 이를 URL객체로 생성
@@ -26,35 +64,8 @@ class ViewController: UIViewController {
             let dbSource = Bundle.main.path(forResource: "db", ofType: "sqlite")
             try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
         }
-        
-        let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"   //테이블 생성
-        
-        
-        //DB를 연결, 이 과정에서 db객체가 생성
-        if sqlite3_open(dbPath, &db) == SQLITE_OK{              //데이터베이스가 연결되었다면
-        
-            //SQL 구문을 전달할 준비, 이 과정에서 컴파일된 SQL 구문 객체가 생성
-            if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK{   //SQL컴파일이 잘 끝났다면
-        
-                //컴파일된 SQL 구문 객체를 DB에 전달
-                if sqlite3_step(stmt) == SQLITE_DONE {
-                    print("Create Table Success!")
-                }
-                
-                //컴파일된 SQL 구문 객체를 삭제, 이 과정에서 stmt가 해제
-                sqlite3_finalize(stmt)
-            } else {
-                print("Prepare Statement Fail")
-            }
-            
-            //DB 연결을 종료, db 객체가 해제
-            sqlite3_close(db)
-        } else {
-            print("Datebase Connect Fail")
-            return
-        }
+        return dbPath
     }
-
 
 }
 
