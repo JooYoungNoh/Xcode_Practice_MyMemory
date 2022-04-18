@@ -19,6 +19,30 @@ class ViewController: UIViewController {
         let docPathURL = fileMgr.urls(for: .desktopDirectory, in: .userDomainMask).first!                                      //앱 내의 문서 디렉터리 경로를 찾고 이를 URL객체로 생성
         let dbPath = docPathURL.appendingPathComponent("db.sqlite")?.path                                                       //URL객체에 "db.sqlite"파일 경로를 추가 후 경로 생성
         
+        let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"   //테이블 생성
+        
+        
+        //DB를 연결, 이 과정에서 db객체가 생성
+        if sqlite3_open(dbPath, &db) == SQLITE_OK{              //데이터베이스가 연결되었다면
+        
+            //SQL 구문을 전달할 준비, 이 과정에서 컴파일된 SQL 구문 객체가 생성
+            if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK{   //SQL컴파일이 잘 끝났다면
+        
+                //컴파일된 SQL 구문 객체를 DB에 전달
+                if sqlite3_step(stmt) == SQLITE_DONE {
+                    print("Create Table Success!")
+                }
+                //컴파일된 SQL 구문 객체를 삭제, 이 과정에서 stmt가 해제
+                sqlite3_finalize(stmt)
+            } else {
+                print("Prepare Statement Fail")
+            }
+                //DB 연결을 종료, db 객체가 해제
+                sqlite3_close(db)
+        } else {
+            print("Datebase Connect Fail")
+            return
+        }
     }
 
 
