@@ -11,22 +11,34 @@ class DepartmentListTableViewController: UITableViewController {
     //데이트 소스용 멤버 변수
     var departList: [(departCd: Int, departTitle: String, departAddr: String)]!
     
-    let departDAO = DepartmentDAO()                 //SQLite 처리를 담당할 DAO 객체
+    let departDAO = DepartmentDAO()                     //SQLite 처리를 담당할 DAO 객체
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.departList = self.departDAO.find()         //기존 저장된 부서 정보를 가져온다
+        self.initUI()
 
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.departList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //indexPath 매개변수가 가르키는 행에 대한 데이터를 읽어온다
+        let rowData = self.departList[indexPath.row]
+        
+        //셀 객체를 생성하고 데이터를 배치
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DEPART_CELL")
+        
+        cell?.textLabel?.text = rowData.departTitle
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        
+        cell?.detailTextLabel?.text = rowData.departAddr
+        cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
+        
+        
+        return cell!
     }
 
     //MARK: 메소드들
