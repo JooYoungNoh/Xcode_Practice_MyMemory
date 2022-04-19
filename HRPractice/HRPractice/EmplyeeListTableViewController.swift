@@ -11,7 +11,7 @@ class EmplyeeListTableViewController: UITableViewController {
     //데이터 소스를 저장할 변수
     var empList: [EmployeeVO]!
     //SQLite 처리를 담당할 DAO 클래스
-    var empDAO = EmployeeVO()
+    var empDAO = EmployeeDAO()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +20,22 @@ class EmplyeeListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.empList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let rowData = self.empList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EMP_CELL")
+        
+        //사원명 + 재직 상태 출력
+        cell?.textLabel?.text = rowData.empName + "(\(rowData.stateCd.desc()))"
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        
+        cell?.detailTextLabel?.text = rowData.departTitle
+        cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
+        
+        return cell!
     }
 
     //MARK: 메소드들
