@@ -142,5 +142,14 @@ class EmployeeDAO {
         }
     }
     
-    
+    func remove(empCd: Int) -> Bool {
+        do {
+            let sql = "DELETE FROM employee WHERE emp_cd = ? "
+            try self.fmdb.executeQuery(sql, values: [empCd])
+            return true
+        } catch let error as NSError {
+            print("Delete Error : \(error.localizedDescription)")
+            return false
+        }
+    }
 }
