@@ -41,6 +41,21 @@ class DepartmentListTableViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //삭제할 행의 departCd를 구한다
+        let departCd = self.departList[indexPath.row].departCd
+        
+        //DB에서 -> 데이터 소스에서 -> 테이블 뷰에서 순으로 삭제
+        if departDAO.remove(departCd: departCd){
+            self.departList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     //MARK: 아울렛 액션 메소드
     //신규 부서를 추가하는 메소드
     @IBAction func add(_sender: Any){
