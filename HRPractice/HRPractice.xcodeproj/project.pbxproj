@@ -15,9 +15,9 @@
 		73044449280F33BF007CE7D4 /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73044448280F33BF007CE7D4 /* EmployeeDAO.swift */; };
 		7304444B280F4B67007CE7D4 /* DepartPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304444A280F4B67007CE7D4 /* DepartPickerViewController.swift */; };
 		7304444D280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304444C280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift */; };
+		7304444F280F63E7007CE7D4 /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7304444E280F63E7007CE7D4 /* hr.sqlite */; };
 		73C8B800280F2117007E5F56 /* DepartmentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */; };
 		73C8B802280F212B007E5F56 /* EmplyeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */; };
-		73C8B804280F2280007E5F56 /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 73C8B803280F2280007E5F56 /* hr.sqlite */; };
 		73C8B806280F2325007E5F56 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B805280F2325007E5F56 /* DepartmentDAO.swift */; };
 		73CF5FFE280F1D3C00E20BCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF5FFD280F1D3C00E20BCA /* AppDelegate.swift */; };
 		73CF6000280F1D3C00E20BCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF5FFF280F1D3C00E20BCA /* SceneDelegate.swift */; };
@@ -42,9 +42,9 @@
 		73044448280F33BF007CE7D4 /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
 		7304444A280F4B67007CE7D4 /* DepartPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartPickerViewController.swift; sourceTree = "<group>"; };
 		7304444C280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInfoTableViewController.swift; sourceTree = "<group>"; };
+		7304444E280F63E7007CE7D4 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
 		73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentListTableViewController.swift; sourceTree = "<group>"; };
 		73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmplyeeListTableViewController.swift; sourceTree = "<group>"; };
-		73C8B803280F2280007E5F56 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
 		73C8B805280F2325007E5F56 /* DepartmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
 		73CF5FFA280F1D3C00E20BCA /* HRPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF5FFD280F1D3C00E20BCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				73CF6008280F1D3D00E20BCA /* LaunchScreen.storyboard */,
 				73CF600B280F1D3D00E20BCA /* Info.plist */,
 				73CF601A280F1F0F00E20BCA /* HR-Bridging-Header.h */,
-				73C8B803280F2280007E5F56 /* hr.sqlite */,
+				7304444E280F63E7007CE7D4 /* hr.sqlite */,
 			);
 			path = HRPractice;
 			sourceTree = "<group>";
@@ -193,9 +193,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				73CF600A280F1D3D00E20BCA /* LaunchScreen.storyboard in Resources */,
-				73C8B804280F2280007E5F56 /* hr.sqlite in Resources */,
 				73CF6007280F1D3D00E20BCA /* Assets.xcassets in Resources */,
 				73CF6005280F1D3C00E20BCA /* Main.storyboard in Resources */,
+				7304444F280F63E7007CE7D4 /* hr.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
