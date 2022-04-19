@@ -52,7 +52,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="부서목록" id="rrV-Rb-utY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V2q-cX-9gb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V2q-cX-9gb">
+                            <connections>
+                                <action selector="addWith_sender:" destination="qZs-Pw-vby" id="OUV-m1-nRA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EC4-Zz-cua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
