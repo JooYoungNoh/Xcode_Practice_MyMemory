@@ -37,6 +37,47 @@ class EmplyeeListTableViewController: UITableViewController {
         
         return cell!
     }
+    //MARK: 아웃렛 액션 메소드
+    //사원 등록 메소드
+    @IBAction func add(_ sender: Any){
+        let alert = UIAlertController(title: "사원 등록", message: "등록할 사원의 정보를 입력해주세요", preferredStyle: .alert)
+        
+        alert.addTextField(){ (tf) in tf.placeholder = "사원명" }
+        
+        //contentViewController 영역에 부서 선택 피커 뷰 삽입
+        let pickerVC = DepartPickerViewController()
+        alert.setValue(pickerVC, forKey: "contentViewController")
+        
+        //등록창 버튼 처리
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        alert.addAction(UIAlertAction(title: "확인", style: .default){ () in
+            //알림창의 입력필드에서 값을 읽어온다
+            var param = EmployeeVO()
+            param.departCd = pickerVC.selectedDepartCd
+            param.empName = (alert.textFields?[0].text)!
+            
+            //가입일은 오늘로 한다
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd"
+            param.joinDate = df.string(from: Date())
+            
+            //재직 상태는 재직중으로 한다
+            param.stateCd = EmpStateType.ING
+            
+            //DB 처리
+            //결과가 성공이면 데이터를 읽어들여 테이블 뷰를 갱신
+            if self.empDAO.create(param: param){
+                self.empList = self.empDAO.find()
+                self.tableView.reloadData()
+                
+                //내비게이션 타이틀을 갱신
+                if let navTitle = self.navigationItem.titleView as? UILabel {
+                    navTitle.text = "사원 목록 \n" + "총 \(self.empList.count) 명"
+                }
+            }
+        })
+        self.present(alert, animated: false)
+    }
 
     //MARK: 메소드들
     //UI초기화 함수

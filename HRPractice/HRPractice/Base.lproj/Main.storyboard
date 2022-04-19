@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" title="부서목록" id="rrV-Rb-utY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="V2q-cX-9gb">
                             <connections>
-                                <action selector="addWith_sender:" destination="qZs-Pw-vby" id="OUV-m1-nRA"/>
+                                <action selector="add:" destination="qZs-Pw-vby" id="E8y-dN-gTW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,7 +107,13 @@
                             <outlet property="delegate" destination="bGQ-KN-8ap" id="93m-3x-QuT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="사원목록" id="e5Y-pb-3is"/>
+                    <navigationItem key="navigationItem" title="사원목록" id="e5Y-pb-3is">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KIn-Gd-8Hb">
+                            <connections>
+                                <action selector="add:" destination="bGQ-KN-8ap" id="rLF-6p-dDa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzp-yi-05J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
