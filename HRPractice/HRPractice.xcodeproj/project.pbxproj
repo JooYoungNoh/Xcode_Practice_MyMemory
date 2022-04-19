@@ -14,6 +14,7 @@
 		73044447280F2689007CE7D4 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 73044441280F2689007CE7D4 /* FMDatabasePool.m */; };
 		73044449280F33BF007CE7D4 /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73044448280F33BF007CE7D4 /* EmployeeDAO.swift */; };
 		7304444B280F4B67007CE7D4 /* DepartPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304444A280F4B67007CE7D4 /* DepartPickerViewController.swift */; };
+		7304444D280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304444C280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift */; };
 		73C8B800280F2117007E5F56 /* DepartmentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */; };
 		73C8B802280F212B007E5F56 /* EmplyeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */; };
 		73C8B804280F2280007E5F56 /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 73C8B803280F2280007E5F56 /* hr.sqlite */; };
@@ -40,6 +41,7 @@
 		73044442280F2689007CE7D4 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		73044448280F33BF007CE7D4 /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
 		7304444A280F4B67007CE7D4 /* DepartPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartPickerViewController.swift; sourceTree = "<group>"; };
+		7304444C280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInfoTableViewController.swift; sourceTree = "<group>"; };
 		73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentListTableViewController.swift; sourceTree = "<group>"; };
 		73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmplyeeListTableViewController.swift; sourceTree = "<group>"; };
 		73C8B803280F2280007E5F56 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */,
 				73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */,
 				7304444A280F4B67007CE7D4 /* DepartPickerViewController.swift */,
+				7304444C280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift */,
 				73CF6006280F1D3D00E20BCA /* Assets.xcassets */,
 				73CF6008280F1D3D00E20BCA /* LaunchScreen.storyboard */,
 				73CF600B280F1D3D00E20BCA /* Info.plist */,
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7304444B280F4B67007CE7D4 /* DepartPickerViewController.swift in Sources */,
+				7304444D280F55C5007CE7D4 /* DepartmentInfoTableViewController.swift in Sources */,
 				73CF5FFE280F1D3C00E20BCA /* AppDelegate.swift in Sources */,
 				73044449280F33BF007CE7D4 /* EmployeeDAO.swift in Sources */,
 				73CF6000280F1D3C00E20BCA /* SceneDelegate.swift in Sources */,
