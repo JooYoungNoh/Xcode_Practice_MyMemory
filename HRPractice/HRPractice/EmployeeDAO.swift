@@ -21,8 +21,13 @@ enum EmpStateType: Int {
     
 }
 
-struct EmployeeV0{
-    
+struct EmployeeVO{
+    var empCd = 0
+    var empName = ""
+    var joinDate = ""
+    var stateCd = EmpStateType.ING
+    var departCd = 0
+    var departTitle = ""
 }
 
 class EmployeeDAO {
