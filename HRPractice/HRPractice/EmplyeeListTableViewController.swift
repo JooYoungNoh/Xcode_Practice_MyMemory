@@ -37,6 +37,22 @@ class EmplyeeListTableViewController: UITableViewController {
         
         return cell!
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //삭제할 행의 empCd를 구한다
+        let empCd = self.empList[indexPath.row].empCd
+        
+        //DB에서 -> 데이터 소스에서 -> 테이블 뷰에서 순으로 삭제
+        if empDAO.remove(empCd: empCd){
+            self.empList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     //MARK: 아웃렛 액션 메소드
     //사원 등록 메소드
     @IBAction func add(_ sender: Any){
@@ -77,6 +93,17 @@ class EmplyeeListTableViewController: UITableViewController {
             }
         })
         self.present(alert, animated: false)
+    }
+    //사원 삭제 메소드
+    @IBAction func editing(_ sender: Any){
+        //현재 편집 모드가 아닐때
+        if self.isEditing == false {
+            self.setEditing(true, animated: true)
+            (sender as? UIBarButtonItem)?.title = "Done"
+        } else {
+            self.setEditing(false, animated: true)
+            (sender as? UIBarButtonItem)?.title = "Edit"
+        }
     }
 
     //MARK: 메소드들
