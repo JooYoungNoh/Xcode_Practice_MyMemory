@@ -87,4 +87,18 @@ class DepartmentDAO {
             return nil
         }
     }
+    
+    func create(title: String!, addr: String!) -> Bool{
+        do{
+            let sql = """
+                    INSERT INTO department (depart_title, depart_addr)
+                    VALUES ( ? , ? )
+            """
+            try self.fmdb.executeQuery(sql, values: [title!, addr!])
+            return true
+        } catch let error as NSError {
+            print("Insert Error : \(error.localizedDescription)")
+            return false
+        }
+    }
 }
