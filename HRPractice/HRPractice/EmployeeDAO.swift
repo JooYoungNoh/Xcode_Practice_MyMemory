@@ -31,5 +31,62 @@ struct EmployeeVO{
 }
 
 class EmployeeDAO {
+    //FMDatabase 객체 생성 및 초기화
+    lazy var fmdb: FMDatabase! = {
+        //파일 메니저 객체 생성
+        let fileMgr = FileManager.default
+        
+        //샌드박스 내 문서 디렉터리에서 데이터베이스 파일 경로를 확인
+        let docPath = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first
+        let dbPath = docPath!.appendingPathComponent("hr.sqlite").path
+        
+        //샌드박스 경로에 파일이 없다면 메인 번들에 만들어 둔 hr.sqlite를 가져와 복사
+        if fileMgr.fileExists(atPath: dbPath) == false {
+            let dbSource = Bundle.main.path(forResource: "hr", ofType: "sqlite")
+            try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
+        }
+        
+        //준비된 데이터베이스 파일을 바탕으로 FMDatabase 객체를 생성
+        let db = FMDatabase(path: dbPath)
+        return db
+    }()
     
+    init(){
+        self.fmdb.open()
+    }
+    deinit{
+        self.fmdb.close()
+    }
+    
+    func find() -> [EmployeeVO] {
+        //반환할 데이터를 담을 [Employee] 타입의 객체 정의
+        var employeeList = [EmployeeVO]()
+        
+        do {
+            let sql = """
+                SELECT emp_cd, emp_name, join_date, state_cd, department.depart_title
+                FROM employee
+                JOIN department ON department.depart_cd = employee.depart_cd
+                ORDER BY employee.depart_cd ASC
+            """
+            let rs = try self.fmdb.executeQuery(sql, values: nil)
+            
+            while rs.next() {
+                var record = EmployeeVO()
+                
+                record.empCd = Int(rs.int(forColumn: "emp_cd"))
+                record.empName = rs.string(forColumn: "emp_name")!
+                record.joinDate = rs.string(forColumn: "join_date")!
+                record.departTitle = rs.string(forColumn: "depart_title")!
+                
+                let cd = Int(rs.int(forColumn: "state_cd")) //DB에서 읽어온 state_cd 값
+                record.stateCd = EmpStateType(rawValue: cd)!
+                
+                employeeList.append(record)
+            }
+        } catch let error as NSError{
+            print("failed : \(error.localizedDescription)")
+        }
+        return employeeList
+    }
 }
