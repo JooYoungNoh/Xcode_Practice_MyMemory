@@ -35,4 +35,33 @@ class DepartmentDAO {
     deinit{
         self.fmdb.close()
     }
+    
+    //MARK: 메소드들
+    func find() -> [DepartRecord]{
+        //반환할 데이터를 담을 [DepartRecord] 타입 객체 정의
+        var departList = [DepartRecord]()
+        
+        do{
+            //부서 정보 목록을 가져올 SQL 작성 및 쿼리 진행
+            let sql = """
+                SELECT depart_cd, depart_title, depart_addr
+                FROM department
+                ORDER BY depart_cd ASC
+            """
+            let rs = try self.fmdb.executeQuery(sql, values: nil)
+            
+            //결과 집합 추출
+            while rs.next(){
+                let departCd = rs.int(forColumn: "depart_cd")
+                let departTitle = rs.string(forColumn: "depart_title")
+                let departAddr = rs.string(forColumn: "depart_addr")
+                
+                //append 메소드 호출 시 아래 튜플을 괄호 없이 사용하지 않도록 주의
+                departList.append( (Int(departCd), departTitle!, departAddr!) )
+            }
+        } catch let error as NSError {
+            print("failed : \(error.localizedDescription)")
+        }
+        return departList
+    }
 }
