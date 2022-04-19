@@ -137,7 +137,7 @@ class EmployeeDAO {
             params.append(param.stateCd.rawValue)
             params.append(param.departCd)
             
-            try self.fmdb.executeQuery(sql, values: params)
+            try self.fmdb.executeUpdate(sql, values: params)
             
             return true
         } catch let error as NSError {
@@ -149,7 +149,7 @@ class EmployeeDAO {
     func remove(empCd: Int) -> Bool {
         do {
             let sql = "DELETE FROM employee WHERE emp_cd = ? "
-            try self.fmdb.executeQuery(sql, values: [empCd])
+            try self.fmdb.executeUpdate(sql, values: [empCd])
             return true
         } catch let error as NSError {
             print("Delete Error : \(error.localizedDescription)")
