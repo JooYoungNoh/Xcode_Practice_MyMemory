@@ -58,6 +58,7 @@ class EmployeeDAO {
         self.fmdb.close()
     }
     
+    //MARK: 메소드들
     func find() -> [EmployeeVO] {
         //반환할 데이터를 담을 [Employee] 타입의 객체 정의
         var employeeList = [EmployeeVO]()
@@ -88,5 +89,34 @@ class EmployeeDAO {
             print("failed : \(error.localizedDescription)")
         }
         return employeeList
+    }
+    
+    func get(empCd: Int) -> EmployeeVO?{
+        //질의 실행
+        let sql = """
+                SELECT emp_cd, emp_name, join_date, state_cd, department.depart_title
+                FROM employee
+                JOIN department ON department.depart_cd = employee.depart_cd
+                WHERE emp_cd = ?
+            """
+        let rs = self.fmdb.executeQuery(sql, withArgumentsIn: [empCd])
+        
+        //결과 집합 처리
+        if let _rs = rs {
+            _rs.next()
+            
+            var record = EmployeeVO()
+            record.empCd = Int(_rs.int(forColumn: "emp_cd"))
+            record.empName = _rs.string(forColumn: "emp_name")!
+            record.joinDate = _rs.string(forColumn: "join_date")!
+            record.departTitle = _rs.string(forColumn: "depart_title")!
+            
+            let cd = Int(_rs.int(forColumn: "state_cd"))
+            record.stateCd = EmpStateType(rawValue: cd)!
+            
+            return record
+        } else {
+            return nil
+        }
     }
 }
