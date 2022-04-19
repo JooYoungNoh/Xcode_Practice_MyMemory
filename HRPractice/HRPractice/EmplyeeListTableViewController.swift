@@ -51,6 +51,10 @@ class EmplyeeListTableViewController: UITableViewController {
             self.empList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        //내비게이션 타이들에도 변경된 부서 정보를 반영
+        let navTitle = self.navigationItem.titleView as! UILabel
+        navTitle.text = "사원 목록 \n" + "총 \(self.empList.count) 개"
     }
     
     //MARK: 아웃렛 액션 메소드

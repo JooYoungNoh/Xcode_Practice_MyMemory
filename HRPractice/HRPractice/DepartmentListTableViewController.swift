@@ -55,6 +55,10 @@ class DepartmentListTableViewController: UITableViewController {
             self.departList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        //내비게이션 타이들에도 변경된 부서 정보를 반영
+        let navTitle = self.navigationItem.titleView as! UILabel
+        navTitle.text = "부서 목록 \n" + "총 \(self.departList.count) 개"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
