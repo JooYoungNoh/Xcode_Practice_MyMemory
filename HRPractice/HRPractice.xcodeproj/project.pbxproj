@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73C8B800280F2117007E5F56 /* DepartmentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */; };
+		73C8B802280F212B007E5F56 /* EmplyeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */; };
 		73CF5FFE280F1D3C00E20BCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF5FFD280F1D3C00E20BCA /* AppDelegate.swift */; };
 		73CF6000280F1D3C00E20BCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF5FFF280F1D3C00E20BCA /* SceneDelegate.swift */; };
 		73CF6005280F1D3C00E20BCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF6003280F1D3C00E20BCA /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentListTableViewController.swift; sourceTree = "<group>"; };
+		73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmplyeeListTableViewController.swift; sourceTree = "<group>"; };
 		73CF5FFA280F1D3C00E20BCA /* HRPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF5FFD280F1D3C00E20BCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF5FFF280F1D3C00E20BCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 				73CF5FFD280F1D3C00E20BCA /* AppDelegate.swift */,
 				73CF5FFF280F1D3C00E20BCA /* SceneDelegate.swift */,
 				73CF6003280F1D3C00E20BCA /* Main.storyboard */,
+				73C8B7FF280F2117007E5F56 /* DepartmentListTableViewController.swift */,
+				73C8B801280F212B007E5F56 /* EmplyeeListTableViewController.swift */,
 				73CF6006280F1D3D00E20BCA /* Assets.xcassets */,
 				73CF6008280F1D3D00E20BCA /* LaunchScreen.storyboard */,
 				73CF600B280F1D3D00E20BCA /* Info.plist */,
@@ -155,6 +161,8 @@
 			files = (
 				73CF5FFE280F1D3C00E20BCA /* AppDelegate.swift in Sources */,
 				73CF6000280F1D3C00E20BCA /* SceneDelegate.swift in Sources */,
+				73C8B800280F2117007E5F56 /* DepartmentListTableViewController.swift in Sources */,
+				73C8B802280F212B007E5F56 /* EmplyeeListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
