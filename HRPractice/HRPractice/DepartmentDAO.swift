@@ -29,5 +29,10 @@ class DepartmentDAO {
         return db
     }()
     
-    
+    init(){
+        self.fmdb.open()
+    }
+    deinit{
+        self.fmdb.close()
+    }
 }
