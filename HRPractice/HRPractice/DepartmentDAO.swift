@@ -64,4 +64,27 @@ class DepartmentDAO {
         }
         return departList
     }
+    
+    func get(departCd: Int) -> DepartRecord? {
+        //질의 실행
+        let sql = """
+                SELECT depart_cd, depart_title, depart_addr
+                FROM department
+                WHERE depart_cd = ?
+            """
+        let rs = self.fmdb.executeQuery(sql, withArgumentsIn: [departCd])
+        
+        //결과 집합 처리
+        if let _rs = rs {   //결과 집합이 옵셔널 타입으로 반환되므로, 이를 일반 상수에 바인딩하여 해제
+            _rs.next()
+            
+            let departCd = _rs.int(forColumn: "depart_cd")
+            let departTitle = _rs.string(forColumn: "depart_title")
+            let departAddr = _rs.string(forColumn: "depart_addr")
+            
+            return (Int(departCd), departTitle!, departAddr!)
+        } else {
+            return nil
+        }
+    }
 }
