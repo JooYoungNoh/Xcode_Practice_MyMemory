@@ -59,7 +59,7 @@ class DepartmentListTableViewController: UITableViewController {
     
     //MARK: 아울렛 액션 메소드
     //신규 부서를 추가하는 메소드
-    @IBAction func add(_sender: Any){
+    @IBAction func add(_ sender: Any){
         let alert = UIAlertController(title: "신규 부서 등록", message: "신규 부서를 등록해주세요", preferredStyle: .alert)
         
         //부서명 및 주소 입력용 텍스트 필드 추가
