@@ -50,7 +50,7 @@ class EmplyeeListTableViewController: UITableViewController {
         
         //등록창 버튼 처리
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
-        alert.addAction(UIAlertAction(title: "확인", style: .default){ () in
+        alert.addAction(UIAlertAction(title: "확인", style: .default){ (_) in
             //알림창의 입력필드에서 값을 읽어온다
             var param = EmployeeVO()
             param.departCd = pickerVC.selectedDepartCd
