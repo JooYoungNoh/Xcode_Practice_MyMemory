@@ -17,6 +17,11 @@ class EmplyeeListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.empList = self.empDAO.find()
         self.initUI()
+        
+        //당겨서 새로고침 기능
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        self.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
     }
 
     // MARK: - Table view data source
@@ -110,6 +115,17 @@ class EmplyeeListTableViewController: UITableViewController {
         }
     }
 
+    //MARK: 액션 메소드
+    //새로고침 메소드
+    @objc func pullToRefresh(_ sender: Any){
+        //새로고침 시 갱신되어야 할 내용들
+        self.empList = self.empDAO.find()
+        self.tableView.reloadData()
+        
+        //당겨서 새로고침 기능 종료
+        self.refreshControl?.endRefreshing()
+    }
+    
     //MARK: 메소드들
     //UI초기화 함수
     func initUI(){
