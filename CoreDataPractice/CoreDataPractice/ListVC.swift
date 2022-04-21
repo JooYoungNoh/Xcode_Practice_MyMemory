@@ -16,7 +16,7 @@ class ListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
     }
 
     // MARK: - Table view data source
@@ -43,7 +43,7 @@ class ListVC: UITableViewController {
     
     //MARK: 액션 메소드
     //데이터 저장 버튼에 대한 액션 메소드
-    func add(_ sender: Any){
+    @objc func add(_ sender: Any){
         
     }
     
