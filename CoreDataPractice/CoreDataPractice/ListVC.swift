@@ -14,19 +14,6 @@ class ListVC: UITableViewController {
         return self.fetch()
     }()
     
-    //데이터를 읽어올 메소드
-    func fetch() -> [NSManagedObject]{
-        //앱 델리게이트 객체 참조
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //관리 객체 컨텍스트 참조
-        let context = appDelegate.persistentContainer.viewContext
-        //요청 객체 생성
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Board")
-        //데이터 가져오기
-        let result = try! context.fetch(fetchRequest)
-        return result
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,5 +41,29 @@ class ListVC: UITableViewController {
         return cell
     }
     
-
+    //MARK: 액션 메소드
+    //데이터 저장 버튼에 대한 액션 메소드
+    func add(_ sender: Any){
+        
+    }
+    
+    //MARK: 메소드들
+    //데이터를 읽어올 메소드
+    func fetch() -> [NSManagedObject]{
+        //앱 델리게이트 객체 참조
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //관리 객체 컨텍스트 참조
+        let context = appDelegate.persistentContainer.viewContext
+        //요청 객체 생성
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Board")
+        //데이터 가져오기
+        let result = try! context.fetch(fetchRequest)
+        return result
+    }
+    
+    //데이터를 저장할 메소드
+    func save(title: String, contents: String) -> Bool {
+        
+    }
+    
 }
