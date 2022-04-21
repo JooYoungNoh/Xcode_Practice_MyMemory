@@ -8,10 +8,48 @@
 import UIKit
 
 class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    lazy var dao = MemoDAO()
+    
     //앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelgate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: ViewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다
+        if let revealVC = self.revealViewController(){
+            //바 버튼 아이템 객체를 정의한다
+            let btn = UIBarButtonItem()
+            btn.image = UIImage(named: "sidemenu")
+            btn.target = revealVC                //버튼 클릭 시 호출할 메소드가 정의된 객체
+            btn.action = #selector(revealVC.revealToggle(_:))
+            
+            //정의된 바 버튼을 내비게이션 바의 왼쪽 아이템으로 등록
+            self.navigationItem.leftBarButtonItem = btn
+            
+            //제스처 객체를 뷰에 추가
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+    }
+
+    // MARK: ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorialVC(name: "MasterVC")
+            vc?.modalPresentationStyle = .fullScreen
+            self.present(vc!, animated: false)
+            return
+        }
+        //코어 데이터에 저장된 데이터를 가져온다
+        self.appDelgate.memolist = self.dao.fetch()
+        
+        self.tableView.reloadData()
+        
+    }
     
     // MARK: 테이블 구성 메소드들
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,40 +91,5 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    // MARK: ViewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다
-        if let revealVC = self.revealViewController(){
-            //바 버튼 아이템 객체를 정의한다
-            let btn = UIBarButtonItem()
-            btn.image = UIImage(named: "sidemenu")
-            btn.target = revealVC                //버튼 클릭 시 호출할 메소드가 정의된 객체
-            btn.action = #selector(revealVC.revealToggle(_:))
-            
-            //정의된 바 버튼을 내비게이션 바의 왼쪽 아이템으로 등록
-            self.navigationItem.leftBarButtonItem = btn
-            
-            //제스처 객체를 뷰에 추가
-            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
-        }
-    }
-
-    // MARK: ViewWillAppear
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let ud = UserDefaults.standard
-        if ud.bool(forKey: UserInfoKey.tutorial) == false {
-            let vc = self.instanceTutorialVC(name: "MasterVC")
-            vc?.modalPresentationStyle = .fullScreen
-            self.present(vc!, animated: false)
-            return
-        }
-        
-        self.tableView.reloadData()
-        
-    }
-
 }
 
