@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    //코어 데이터 추가 방법
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores{
+            if let error = $1 as NSError?{
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }()
 
+    func saveContext(){
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do{
+                try context.save()
+            } catch let error as NSError{
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.saveContext()
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

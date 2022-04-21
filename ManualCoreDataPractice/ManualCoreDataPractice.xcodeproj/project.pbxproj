@@ -13,6 +13,7 @@
 		7349DB4A2811E3810042DC52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7349DB482811E3810042DC52 /* Main.storyboard */; };
 		7349DB4C2811E3820042DC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7349DB4B2811E3820042DC52 /* Assets.xcassets */; };
 		7349DB4F2811E3820042DC52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7349DB4D2811E3820042DC52 /* LaunchScreen.storyboard */; };
+		7349DB582811E3CD0042DC52 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7349DB562811E3CD0042DC52 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7349DB4B2811E3820042DC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7349DB4E2811E3820042DC52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7349DB502811E3820042DC52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7349DB572811E3CD0042DC52 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				7349DB442811E3810042DC52 /* SceneDelegate.swift */,
 				7349DB462811E3810042DC52 /* ViewController.swift */,
 				7349DB482811E3810042DC52 /* Main.storyboard */,
+				7349DB562811E3CD0042DC52 /* DataModel.xcdatamodeld */,
 				7349DB4B2811E3820042DC52 /* Assets.xcassets */,
 				7349DB4D2811E3820042DC52 /* LaunchScreen.storyboard */,
 				7349DB502811E3820042DC52 /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7349DB472811E3810042DC52 /* ViewController.swift in Sources */,
+				7349DB582811E3CD0042DC52 /* DataModel.xcdatamodeld in Sources */,
 				7349DB432811E3810042DC52 /* AppDelegate.swift in Sources */,
 				7349DB452811E3810042DC52 /* SceneDelegate.swift in Sources */,
 			);
@@ -356,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7349DB562811E3CD0042DC52 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7349DB572811E3CD0042DC52 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 7349DB572811E3CD0042DC52 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7349DB372811E3810042DC52 /* Project object */;
 }
