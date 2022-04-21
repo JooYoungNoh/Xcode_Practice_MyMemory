@@ -10,11 +10,35 @@ import UIKit
 class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     var subject: String!        //제목을 저장할 객체
+    lazy var dao = MemoDAO()
     
     @IBOutlet weak var contentsView: UITextView!
     @IBOutlet weak var preview: UIImageView!
     
-    // MARK: 저장 버튼을 클릭했을 때 호출되는 메소드
+    // MARK: ViewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.contentsView.delegate = self       //텍스트뷰 델리게이트 정의
+
+        //배경 이미지 설정
+        let bgImage = UIImage(named: "memo-background")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        //텍스트 뷰의 기본 속성
+        self.contentsView.layer.borderWidth = 0
+        self.contentsView.layer.borderColor = UIColor.clear.cgColor
+        self.contentsView.backgroundColor = UIColor.clear
+        
+        //줄 간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.contentsView.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
+        self.contentsView.text = ""
+        
+    }
+    
+    //MARK: 아웃렛 액션 메소드
+    //저장 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func save(_ sender: UIBarButtonItem){
         //경고창에 사용될 콘텐츠 뷰 컨트롤러 구성
         let alertV = UIViewController()
@@ -50,7 +74,7 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    // MARK: 카메라 버튼을 클릭했을 때 호출되는 메소드
+    //카메라 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func pick(_ sender: UIBarButtonItem){
         
         //이미지 피커 인스턴스를 생성
@@ -64,7 +88,8 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    // MARK: 사용자가 텍스트 뷰에 뭔가를 입력하면 자동으로 호출되는 메소드
+    //MARK: 메소스들
+    //사용자가 텍스트 뷰에 뭔가를 입력하면 자동으로 호출되는 메소드
     func textViewDidChange(_ textView: UITextView) {
         //내용을 최대 15자리까지 읽어 subject 변수에 저장
         let contents = textView.text as NSString
@@ -75,7 +100,7 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         self.navigationItem.title = self.subject
     }
     
-    // MARK: 사용자가 이미지를 선택하면 자동으로 호출되는 메소드
+    //사용자가 이미지를 선택하면 자동으로 호출되는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //선택된 이미지를 미리보기에 출력
         self.preview.image = info[.editedImage] as? UIImage
@@ -84,7 +109,7 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         picker.dismiss(animated: false)
     }
     
-    // MARK: 터치했을 때 네비게이션 바가 토글되는 기능을 위한 메소드
+    //터치했을 때 네비게이션 바가 토글되는 기능을 위한 메소드
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let bar = self.navigationController?.navigationBar
         
@@ -93,38 +118,5 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
             bar?.alpha = (bar?.alpha == 0 ? 1 : 0 )
         }
     }
-    
-    // MARK: ViewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.contentsView.delegate = self       //텍스트뷰 델리게이트 정의
-
-        //배경 이미지 설정
-        let bgImage = UIImage(named: "memo-background")!
-        self.view.backgroundColor = UIColor(patternImage: bgImage)
-        
-        //텍스트 뷰의 기본 속성
-        self.contentsView.layer.borderWidth = 0
-        self.contentsView.layer.borderColor = UIColor.clear.cgColor
-        self.contentsView.backgroundColor = UIColor.clear
-        
-        //줄 간격
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 9
-        self.contentsView.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
-        self.contentsView.text = ""
-        
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
