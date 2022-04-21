@@ -35,18 +35,24 @@ class ListVC: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.list.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        //해당하는 데이터 가져오기
+        let record = self.list[indexPath.row]
+        let title = record.value(forKey: "title") as? String
+        let contents = record.value(forKey: "contents") as? String
+        
+        //셀을 생성하고, 값을 대입
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = title
+        cell.detailTextLabel?.text = contents
 
         return cell
     }
-    */
+    
 
 }
