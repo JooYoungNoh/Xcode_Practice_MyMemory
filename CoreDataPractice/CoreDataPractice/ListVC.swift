@@ -63,7 +63,27 @@ class ListVC: UITableViewController {
     
     //데이터를 저장할 메소드
     func save(title: String, contents: String) -> Bool {
+        //앱 델리게이트 객체 참조
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //관리 객체 컨텍스트 참조
+        let context = appDelegate.persistentContainer.viewContext
         
+        //관리 객체 생성 및 값을 설정
+        let object = NSEntityDescription.insertNewObject(forEntityName: "Board", into: context)
+        
+        object.setValue(title, forKey: "title")
+        object.setValue(contents, forKey: "contents")
+        object.setValue(Date(), forKey: "regdate")
+        
+        //영구 저장소에 커밋되고 나면 list 프로퍼티에 추가
+        do{
+            try context.save()
+            self.list.append(object)
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
     }
     
 }
