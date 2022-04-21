@@ -138,4 +138,26 @@ class ListVC: UITableViewController {
             return false
         }
     }
+    
+    //데이터를 수정할 메소드
+    func edit(object: NSManagedObject, title: String, contents: String) -> Bool {
+        //앱 델리게이트 객체 참조
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        //관리 객체 컨텍스트 참조
+        let context = appdelegate.persistentContainer.viewContext
+        
+        //관리 객체의 값을 수정
+        object.setValue(title, forKey: "title")
+        object.setValue(contents, forKey: "contents")
+        object.setValue(Date(), forKey: "regdate")
+        
+        //영구 저장소에 반영
+        do {
+            try context.save()
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+    }
 }
