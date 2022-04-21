@@ -17,6 +17,8 @@ class ListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+        
+        self.navigationItem.rightBarButtonItem = addButton
     }
 
     // MARK: - Table view data source
