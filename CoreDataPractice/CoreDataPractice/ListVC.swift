@@ -44,7 +44,24 @@ class ListVC: UITableViewController {
     //MARK: 액션 메소드
     //데이터 저장 버튼에 대한 액션 메소드
     @objc func add(_ sender: Any){
+        let alert = UIAlertController(title: "게시글 등록", message: nil, preferredStyle: .alert)
         
+        //입력 필드 추가(이름 및 전화번호)
+        alert.addTextField() { (tf) in tf.placeholder = "제목"}
+        alert.addTextField() { (tf) in tf.placeholder = "내용"}
+        
+        //버튼 추가
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let title = alert.textFields?.first?.text else { return }
+            guard let contents = alert.textFields?.last?.text else { return }
+            
+            //값을 저장하고, 성공이면 테이블 뷰를 리로드
+            if self.save(title: title, contents: contents) == true {
+                self.tableView.reloadData()
+            }
+        })
+        self.present(alert, animated: false)
     }
     
     //MARK: 메소드들
