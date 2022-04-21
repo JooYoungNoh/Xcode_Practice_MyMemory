@@ -43,6 +43,20 @@ class ListVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let object = self.list[indexPath.row]               //삭제할 대상 객체
+        
+        if self.delete(object: object){
+            //코어 데이터에서 삭제되고 나면 배열 목록과 테이블 뷰의 행도 삭제
+            self.list.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     //MARK: 액션 메소드
     //데이터 저장 버튼에 대한 액션 메소드
     @objc func add(_ sender: Any){
