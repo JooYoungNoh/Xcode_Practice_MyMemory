@@ -77,7 +77,17 @@ class ListVC: UITableViewController {
             
             //값을 수정하는 메소드를 호출하고, 그 결과가 성공이면 테이블 뷰를 리로드한다
             if self.edit(object: object, title: title, contents: contents) == true {
-                self.tableView.reloadData()
+                //self.tableView.reloadData()
+                
+                //셀의 내용을 직접 수정
+                let cell = self.tableView.cellForRow(at: indexPath)
+                cell?.textLabel?.text = title
+                cell?.detailTextLabel?.text = contents
+                
+                //수정된 셀을 첫번째 행으로 이동시킨다
+                let firstIndexPath = IndexPath(item: 0, section: 0)
+                self.tableView.moveRow(at: indexPath, to: firstIndexPath)
+                
             }
         })
         self.present(alert, animated: false)
@@ -115,6 +125,11 @@ class ListVC: UITableViewController {
         let context = appDelegate.persistentContainer.viewContext
         //요청 객체 생성
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Board")
+        
+        //정렬 속성 설정
+        let sort = NSSortDescriptor(key: "regdate", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
         //데이터 가져오기
         let result = try! context.fetch(fetchRequest)
         return result
@@ -137,7 +152,8 @@ class ListVC: UITableViewController {
         //영구 저장소에 커밋되고 나면 list 프로퍼티에 추가
         do{
             try context.save()
-            self.list.append(object)
+            // self.list.append(object)
+            self.list.insert(object, at: 0)
             return true
         } catch {
             context.rollback()
@@ -180,6 +196,7 @@ class ListVC: UITableViewController {
         //영구 저장소에 반영
         do {
             try context.save()
+            self.list = self.fetch()            //list 배열 갱신
             return true
         } catch {
             context.rollback()
