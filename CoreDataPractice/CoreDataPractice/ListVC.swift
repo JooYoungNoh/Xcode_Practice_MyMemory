@@ -149,6 +149,14 @@ class ListVC: UITableViewController {
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
         
+        //Log 관리 객체 생성 및 어트리뷰트에 값 대입
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.create.rawValue
+        //게시글 객체의 logs 속성에 새로 생성된 로그 객체 추가
+        (object as! BoardMO).addToLogs(logObject)
+        
+        
         //영구 저장소에 커밋되고 나면 list 프로퍼티에 추가
         do{
             try context.save()
@@ -192,6 +200,13 @@ class ListVC: UITableViewController {
         object.setValue(title, forKey: "title")
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
+        
+        //Log 관리 객체 생성 및 어트리 뷰트에 값 대입
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.edit.rawValue
+        //게시글 객체의 logs 속성에 새로 생성된 로그 객체 추가
+        (object as! BoardMO).addToLogs(logObject)
         
         //영구 저장소에 반영
         do {
