@@ -105,4 +105,23 @@ class ListVC: UITableViewController {
         }
     }
     
+    //데이터를 삭제할 메소드
+    func delete(object: NSManagedObject) -> Bool{
+        //앱 델리게이트 객체 참조
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //관리 객체 컨텍스트 참조
+        let context = appDelegate.persistentContainer.viewContext
+        
+        //컨텍스트로 부터 해당 객체 삭제
+        context.delete(object)
+        
+        //영구 저장소에 커밋
+        do {
+            try context.save()
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+    }
 }
