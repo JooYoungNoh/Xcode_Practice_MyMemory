@@ -93,6 +93,14 @@ class ListVC: UITableViewController {
         self.present(alert, animated: false)
     }
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let object = self.list[indexPath.row]
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "LogVC") as! LogVC
+        uvc.board = (object as! BoardMO)
+        
+        self.show(uvc, sender: self)
+    }
+    
     //MARK: 액션 메소드
     //데이터 저장 버튼에 대한 액션 메소드
     @objc func add(_ sender: Any){
