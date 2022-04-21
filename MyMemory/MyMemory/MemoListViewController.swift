@@ -7,17 +7,21 @@
 
 import UIKit
 
-class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     lazy var dao = MemoDAO()
     
     //앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelgate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        //검색 바의 키보드에서 리턴 키가 항상 활성화되어 있도록 처리
+        searchBar.enablesReturnKeyAutomatically = false
+        
         //SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다
         if let revealVC = self.revealViewController(){
             //바 버튼 아이템 객체를 정의한다
@@ -104,6 +108,14 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.appDelgate.memolist.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = searchBar.text            //검색창에 입력된 키워드를 가져온다
+        
+        //키워드를 적용하여 데이터를 검색하고, 테이블 뷰를 갱신
+        self.appDelgate.memolist = self.dao.fetch(keyword: keyword)
+        self.tableView.reloadData()
     }
 }
 
