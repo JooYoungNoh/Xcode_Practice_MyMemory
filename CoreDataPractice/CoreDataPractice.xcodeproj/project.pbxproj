@@ -14,6 +14,7 @@
 		7329CCA22811BD130031D758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7329CCA12811BD130031D758 /* Assets.xcassets */; };
 		7329CCA52811BD130031D758 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329CCA32811BD130031D758 /* LaunchScreen.storyboard */; };
 		7329CCAD2811BDD90031D758 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329CCAC2811BDD90031D758 /* ListVC.swift */; };
+		73D8631F2811D1E800999F31 /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8631E2811D1E800999F31 /* LogVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7329CCA42811BD130031D758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7329CCA62811BD130031D758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7329CCAC2811BDD90031D758 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		73D8631E2811D1E800999F31 /* LogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				7329CC952811BD120031D758 /* AppDelegate.swift */,
 				7329CC972811BD120031D758 /* SceneDelegate.swift */,
 				7329CC9B2811BD120031D758 /* Main.storyboard */,
+				73D8631E2811D1E800999F31 /* LogVC.swift */,
 				7329CCAC2811BDD90031D758 /* ListVC.swift */,
 				7329CCA12811BD130031D758 /* Assets.xcassets */,
 				7329CCA32811BD130031D758 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				7329CCAD2811BDD90031D758 /* ListVC.swift in Sources */,
 				7329CC962811BD120031D758 /* AppDelegate.swift in Sources */,
+				73D8631F2811D1E800999F31 /* LogVC.swift in Sources */,
 				7329CC982811BD120031D758 /* SceneDelegate.swift in Sources */,
 				7329CCA02811BD120031D758 /* CoreDataPractice.xcdatamodeld in Sources */,
 			);
