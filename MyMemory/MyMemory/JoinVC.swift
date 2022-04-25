@@ -18,6 +18,9 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
     var fieldPassword: UITextField!
     var fieldName: UITextField!
     
+    //API 호출 상태값을 관리할 변수
+    var isCalling = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //프로필 이미지를 원형으로 설정
@@ -84,6 +87,13 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
 
     //MARK: 아울렛 메소드
     @IBAction func submit(_ sender: Any){
+        if self.isCalling == true {
+            self.alert("진행 중입니다. 잠시만 기다려주세요.")
+            return
+        } else {
+            self.isCalling = true
+        }
+        
         //인디케이터 뷰 애니메이션 시작
         self.indicatorView.startAnimating()
         
@@ -109,6 +119,7 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
             
             //JSON 형식으로 값이 제대로 전달되었는지 확인
             guard let jsonObject = try! res.result.get() as? [String: Any] else{
+                self.isCalling = false
                 self.alert("서버 호출 과정에서 오류가 발생했습니다")
                 return
             }
@@ -117,6 +128,7 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
             if resultCode == 0{
                 self.alert("가입이 완료되었습니다.")
             } else {
+                self.isCalling = false
                 let errorMsg = jsonObject["error_msg"] as! String
                 self.alert("오류 발생 : \(errorMsg)")
             }
