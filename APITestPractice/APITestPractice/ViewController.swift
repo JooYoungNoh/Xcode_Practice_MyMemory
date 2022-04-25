@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var currentTime: UILabel!
+    @IBOutlet weak var userId: UITextField!
+    @IBOutlet weak var name: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class ViewController: UIViewController {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        
+    }
+    
+    @IBAction func post(_ sender: UIButton){
         
     }
 

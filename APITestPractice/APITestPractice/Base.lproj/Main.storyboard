@@ -30,25 +30,60 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5D-E6-msT">
+                                <rect key="frame" x="50" y="306" width="180" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="hOv-6d-kEa"/>
+                                    <constraint firstAttribute="width" constant="180" id="qeb-OU-Z1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oxr-oo-74E">
+                                <rect key="frame" x="50" y="351" width="180" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="RxM-QZ-4nB"/>
+                                    <constraint firstAttribute="height" constant="35" id="U78-AR-G6N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvK-BI-KFx">
+                                <rect key="frame" x="245" y="306" width="65" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="POST"/>
+                                <connections>
+                                    <action selector="post:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNF-NG-nkz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Oxr-oo-74E" firstAttribute="top" secondItem="e5D-E6-msT" secondAttribute="bottom" constant="10" id="1Of-Ur-dUo"/>
+                            <constraint firstItem="Oxr-oo-74E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="22W-Ud-N7a"/>
                             <constraint firstItem="UdW-S8-JC4" firstAttribute="top" secondItem="Z0R-oi-lxu" secondAttribute="bottom" constant="30" id="38C-TK-Rrz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UdW-S8-JC4" secondAttribute="trailing" constant="100" id="7Fl-cB-FEG"/>
                             <constraint firstItem="Z0R-oi-lxu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="CGe-ZR-aSk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z0R-oi-lxu" secondAttribute="trailing" constant="100" id="MoS-Eq-1jX"/>
                             <constraint firstItem="Z0R-oi-lxu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Pbm-YA-OkZ"/>
+                            <constraint firstItem="KvK-BI-KFx" firstAttribute="top" secondItem="UdW-S8-JC4" secondAttribute="bottom" constant="30" id="f1y-Qf-eGi"/>
+                            <constraint firstItem="KvK-BI-KFx" firstAttribute="leading" secondItem="e5D-E6-msT" secondAttribute="trailing" constant="15" id="mZ7-jQ-o83"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KvK-BI-KFx" secondAttribute="trailing" constant="80" id="uQf-9a-22e"/>
+                            <constraint firstItem="e5D-E6-msT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="wDb-BP-mH7"/>
                             <constraint firstItem="UdW-S8-JC4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="weZ-UY-2GB"/>
+                            <constraint firstItem="e5D-E6-msT" firstAttribute="top" secondItem="UdW-S8-JC4" secondAttribute="bottom" constant="30" id="xsl-du-Lge"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currentTime" destination="UdW-S8-JC4" id="Vqa-2d-cJd"/>
+                        <outlet property="name" destination="Oxr-oo-74E" id="oUX-wL-SNU"/>
+                        <outlet property="userId" destination="e5D-E6-msT" id="usL-YN-AIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="68"/>
+            <point key="canvasLocation" x="20" y="67.535545023696685"/>
         </scene>
     </scenes>
     <resources>
