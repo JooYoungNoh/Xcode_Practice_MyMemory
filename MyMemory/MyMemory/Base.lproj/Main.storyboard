@@ -363,7 +363,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emx-ic-Mzh">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="emx-ic-Mzh">
                                 <rect key="frame" x="10" y="100" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="e0P-Ua-BnC"/>
@@ -398,7 +398,17 @@
                             <constraint firstItem="Jkq-mH-Yo7" firstAttribute="top" secondItem="AOa-Yb-BgE" secondAttribute="top" constant="12" id="k07-Ek-ccq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="신규 계정 등록" id="GTK-wD-WXL"/>
+                    <navigationItem key="navigationItem" title="신규 계정 등록" id="GTK-wD-WXL">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="9CV-4l-js6">
+                            <connections>
+                                <action selector="submit:" destination="Xpa-E8-dFn" id="7hS-U4-sUf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profile" destination="emx-ic-Mzh" id="cJe-Mp-pMX"/>
+                        <outlet property="tableView" destination="Jkq-mH-Yo7" id="wgF-fe-HhL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGd-2a-8iy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -461,6 +471,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="account" width="90" height="90"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
