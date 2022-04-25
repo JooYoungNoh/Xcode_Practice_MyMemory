@@ -27,6 +27,9 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
         //프로필 이미지에 탭 제스처 및 액션 이벤트 설정
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfile(_:)))
         self.profile.addGestureRecognizer(gesture)
+        
+        //인디케이터 뷰를 화면 맨 앞으로
+        self.view.bringSubviewToFront(self.indicatorView)
     }
     
     //MARK: 테이블 뷰 메소드
@@ -81,6 +84,9 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
 
     //MARK: 아울렛 메소드
     @IBAction func submit(_ sender: Any){
+        //인디케이터 뷰 애니메이션 시작
+        self.indicatorView.startAnimating()
+        
         //전달할 값 준비
         //이미지를 Base64 인코딩 처리
         let profile = self.profile.image!.pngData()?.base64EncodedString()
@@ -98,6 +104,9 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
         
         //서버 응답값 처리
         call.responseJSON { res in
+            //인디케이터 뷰 애니메이션 종료
+            self.indicatorView.stopAnimating()
+            
             //JSON 형식으로 값이 제대로 전달되었는지 확인
             guard let jsonObject = try! res.result.get() as? [String: Any] else{
                 self.alert("서버 호출 과정에서 오류가 발생했습니다")
