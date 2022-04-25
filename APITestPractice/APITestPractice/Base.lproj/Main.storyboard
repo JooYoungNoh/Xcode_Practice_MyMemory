@@ -49,7 +49,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvK-BI-KFx">
-                                <rect key="frame" x="245" y="306" width="65" height="31"/>
+                                <rect key="frame" x="245" y="306" width="95" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="POST"/>
                                 <connections>
@@ -80,7 +80,7 @@
                             <constraint firstItem="KvK-BI-KFx" firstAttribute="top" secondItem="UdW-S8-JC4" secondAttribute="bottom" constant="30" id="f1y-Qf-eGi"/>
                             <constraint firstItem="KvK-BI-KFx" firstAttribute="leading" secondItem="e5D-E6-msT" secondAttribute="trailing" constant="15" id="mZ7-jQ-o83"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ms5-Bg-KfN" secondAttribute="bottom" constant="20" id="t5Q-kD-tfX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KvK-BI-KFx" secondAttribute="trailing" constant="80" id="uQf-9a-22e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KvK-BI-KFx" secondAttribute="trailing" constant="50" id="uQf-9a-22e"/>
                             <constraint firstItem="e5D-E6-msT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="wDb-BP-mH7"/>
                             <constraint firstItem="UdW-S8-JC4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="weZ-UY-2GB"/>
                             <constraint firstItem="e5D-E6-msT" firstAttribute="top" secondItem="UdW-S8-JC4" secondAttribute="bottom" constant="30" id="xsl-du-Lge"/>
