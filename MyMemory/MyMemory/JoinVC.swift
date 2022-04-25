@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +19,13 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //프로필 이미지를 원형으로 설정
+        self.profile.layer.cornerRadius = self.profile.frame.width / 2
+        self.profile.layer.masksToBounds = true
+        
+        //프로필 이미지에 탭 제스처 및 액션 이벤트 설정
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfile(_:)))
+        self.profile.addGestureRecognizer(gesture)
     }
     
     //MARK: 테이블 뷰 메소드
@@ -62,9 +68,51 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }
+    
+    //MARK: 이미지 피커 메소드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let rawVal = UIImagePickerController.InfoKey.originalImage.rawValue
+        if let img = info[UIImagePickerController.InfoKey(rawValue: rawVal)] as? UIImage{
+            self.profile.image = img
+        }
+        self.dismiss(animated: true)
+    }
 
     //MARK: 아울렛 메소드
     @IBAction func submit(_ sender: Any){
         
+    }
+    
+    //MARK: 액션 메소드
+    @objc func tappedProfile(_ sender: Any){
+        //원하는 소스 타입을 선택 할 수 있는 액션 시트 구현
+        let msg = "프로필 이미지를 읽어올 곳을 선택하세요."
+        let sheet = UIAlertController(title: msg, message: nil, preferredStyle: .actionSheet)
+        
+        sheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+        sheet.addAction(UIAlertAction(title: "저장된 앨범", style: .default){ (_) in
+            self.selectLibrary(src: .savedPhotosAlbum)
+        })
+        sheet.addAction(UIAlertAction(title: "포토 라이브러리", style: .default){ (_) in
+            self.selectLibrary(src: .photoLibrary)
+        })
+        sheet.addAction(UIAlertAction(title: "카메라", style: .default){ (_) in
+            self.selectLibrary(src: .camera)            //시뮬레이터 불가
+        })
+        self.present(sheet, animated: false)
+    }
+    
+    //MARK: 메소드들
+    //소스타입에 맞게 이미지 피커를 여는 메소드
+    func selectLibrary(src: UIImagePickerController.SourceType){
+        if UIImagePickerController.isSourceTypeAvailable(src){
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            self.present(picker, animated: false)
+        } else {
+            self.alert("사용할 수 없는 타입입니다.")
+        }
     }
 }
