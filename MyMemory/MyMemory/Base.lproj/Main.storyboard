@@ -387,6 +387,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xpa-E8-dFn" id="VXd-WR-bob"/>
+                                    <outlet property="delegate" destination="Xpa-E8-dFn" id="H1h-TF-sNy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AOa-Yb-BgE"/>

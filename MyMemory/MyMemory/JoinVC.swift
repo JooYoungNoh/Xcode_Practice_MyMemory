@@ -8,14 +8,27 @@
 import UIKit
 import Alamofire
 
-class JoinVC: UIViewController {
+class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    //테이블 뷰에 들어갈 텍스트 필드들
+    var fieldAccount: UITextField!
+    var fieldPassword: UITextField!
+    var fieldName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    //MARK: 테이블 뷰 메소드
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
     }
 
     //MARK: 아울렛 메소드
