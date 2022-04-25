@@ -11,6 +11,7 @@ import Alamofire
 class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     //테이블 뷰에 들어갈 텍스트 필드들
     var fieldAccount: UITextField!

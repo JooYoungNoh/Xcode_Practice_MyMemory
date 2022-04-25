@@ -392,14 +392,20 @@
                                     <outlet property="delegate" destination="Xpa-E8-dFn" id="H1h-TF-sNy"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="EP8-ec-Be3">
+                                <rect key="frame" x="176.66666666666666" y="404" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AOa-Yb-BgE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EP8-ec-Be3" firstAttribute="centerX" secondItem="Kph-zv-HZW" secondAttribute="centerX" id="2gK-l8-ZmK"/>
                             <constraint firstItem="Jkq-mH-Yo7" firstAttribute="leading" secondItem="emx-ic-Mzh" secondAttribute="trailing" constant="10" id="53v-zl-OfV"/>
                             <constraint firstItem="emx-ic-Mzh" firstAttribute="top" secondItem="AOa-Yb-BgE" secondAttribute="top" constant="12" id="JH8-aJ-0En"/>
                             <constraint firstItem="emx-ic-Mzh" firstAttribute="leading" secondItem="AOa-Yb-BgE" secondAttribute="leading" constant="10" id="jHx-hp-w4g"/>
                             <constraint firstItem="Jkq-mH-Yo7" firstAttribute="top" secondItem="AOa-Yb-BgE" secondAttribute="top" constant="12" id="k07-Ek-ccq"/>
+                            <constraint firstItem="EP8-ec-Be3" firstAttribute="top" secondItem="Jkq-mH-Yo7" secondAttribute="bottom" constant="154" id="pxF-IZ-cTN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="신규 계정 등록" id="GTK-wD-WXL">
@@ -410,6 +416,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicatorView" destination="EP8-ec-Be3" id="ppG-Ue-jGa"/>
                         <outlet property="profile" destination="emx-ic-Mzh" id="cJe-Mp-pMX"/>
                         <outlet property="tableView" destination="Jkq-mH-Yo7" id="wgF-fe-HhL"/>
                     </connections>
