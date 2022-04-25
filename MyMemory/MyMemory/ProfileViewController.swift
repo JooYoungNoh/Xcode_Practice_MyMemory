@@ -105,6 +105,31 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    //MARK: 이미지 피커 메소드
+    // 이미지를 가져올 장소(?) 카메라 앨범 등 선택 메소드
+    func imgPicker(_ source: UIImagePickerController.SourceType){
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true)
+        
+    }
+    //이미지 선택하면 호출될 메소드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            self.uinfo.profile = img
+            self.profileImage.image = img
+        }
+        //이미지 피커 컨트롤창 닫기
+        picker.dismiss(animated: true)
+    }
+    
+    //MARK: 아울렛 메소드
+    @IBAction func backProfileVC(_ segue: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: 액션 매소드
     //뒤로 가는 메소드
     @objc func close(_ sender: Any){
@@ -200,7 +225,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.present(alert, animated: true)
     }
     
-    //MARK: 일반 메소드
+    //MARK: 메소드들
     //로그인 로그아웃 버튼을 만들어줄 메소드
     func drawBtn(){
         //버튼을 감쌀 뷰를 정의
@@ -230,29 +255,5 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         v.addSubview(btn)
     }
-    
-
-    //MARK: 이미지 피커 메소드
-    // 이미지를 가져올 장소(?) 카메라 앨범 등 선택 메소드
-    func imgPicker(_ source: UIImagePickerController.SourceType){
-        let picker = UIImagePickerController()
-        picker.sourceType = source
-        picker.delegate = self
-        picker.allowsEditing = true
-        self.present(picker, animated: true)
-        
-    }
-    //이미지 선택하면 호출될 메소드
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            self.uinfo.profile = img
-            self.profileImage.image = img
-        }
-        //이미지 피커 컨트롤창 닫기
-        picker.dismiss(animated: true)
-    }
-    
-    
-    
 
 }
