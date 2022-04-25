@@ -28,6 +28,7 @@
 		737A153D2805E82100AD2B8A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737A153B2805E82100AD2B8A /* SWRevealViewController.m */; };
 		737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */; };
 		737A15412805F29300AD2B8A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A15402805F29300AD2B8A /* ProfileViewController.swift */; };
+		73C2B10228171B65002B35BD /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2B10128171B65002B35BD /* JoinVC.swift */; };
 		73DBEA142807748A00EFA924 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DBEA132807748A00EFA924 /* UserInfoManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		737A153C2805E82100AD2B8A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		737A153E2805EBDF00AD2B8A /* SideBarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		737A15402805F29300AD2B8A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		73C2B10128171B65002B35BD /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		73DBEA132807748A00EFA924 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +90,6 @@
 				3E0CA22C2AD1B310423A0A70 /* Pods-MyMemory.debug.xcconfig */,
 				22C8A59692784939DB3BB97B /* Pods-MyMemory.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -122,6 +123,7 @@
 				731EE64027FDEF6700250DE5 /* MemoReadViewController.swift */,
 				731EE64227FDEF7900250DE5 /* MemoFormViewController.swift */,
 				731EE62F27FDDF0100250DE5 /* Main.storyboard */,
+				73C2B10128171B65002B35BD /* JoinVC.swift */,
 				737554EF2804A72F0082EF21 /* CSLogButton.swift */,
 				731EE64427FDF1FF00250DE5 /* MemoCell.swift */,
 				731EE64627FDF23900250DE5 /* MemoData.swift */,
@@ -272,6 +274,7 @@
 				731282702811E6F500CC5AEB /* MemoDAO.swift in Sources */,
 				731EE62A27FDDF0100250DE5 /* AppDelegate.swift in Sources */,
 				730C520928089CB20046BA74 /* TutorialMasterViewController.swift in Sources */,
+				73C2B10228171B65002B35BD /* JoinVC.swift in Sources */,
 				731EE62C27FDDF0100250DE5 /* SceneDelegate.swift in Sources */,
 				73DBEA142807748A00EFA924 /* UserInfoManager.swift in Sources */,
 				737A153F2805EBDF00AD2B8A /* SideBarTableViewController.swift in Sources */,
