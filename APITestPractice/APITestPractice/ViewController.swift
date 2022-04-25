@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var userId: UITextField!
     @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var responseView : UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

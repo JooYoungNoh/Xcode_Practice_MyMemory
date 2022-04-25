@@ -56,6 +56,13 @@
                                     <action selector="post:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNF-NG-nkz"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ms5-Bg-KfN">
+                                <rect key="frame" x="50" y="406" width="290" height="384"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,10 +72,14 @@
                             <constraint firstItem="UdW-S8-JC4" firstAttribute="top" secondItem="Z0R-oi-lxu" secondAttribute="bottom" constant="30" id="38C-TK-Rrz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UdW-S8-JC4" secondAttribute="trailing" constant="100" id="7Fl-cB-FEG"/>
                             <constraint firstItem="Z0R-oi-lxu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="CGe-ZR-aSk"/>
+                            <constraint firstItem="ms5-Bg-KfN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="MSw-3d-NJO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z0R-oi-lxu" secondAttribute="trailing" constant="100" id="MoS-Eq-1jX"/>
                             <constraint firstItem="Z0R-oi-lxu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Pbm-YA-OkZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ms5-Bg-KfN" secondAttribute="trailing" constant="50" id="akW-Ku-aMM"/>
+                            <constraint firstItem="ms5-Bg-KfN" firstAttribute="top" secondItem="Oxr-oo-74E" secondAttribute="bottom" constant="20" id="eq8-5r-iY0"/>
                             <constraint firstItem="KvK-BI-KFx" firstAttribute="top" secondItem="UdW-S8-JC4" secondAttribute="bottom" constant="30" id="f1y-Qf-eGi"/>
                             <constraint firstItem="KvK-BI-KFx" firstAttribute="leading" secondItem="e5D-E6-msT" secondAttribute="trailing" constant="15" id="mZ7-jQ-o83"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ms5-Bg-KfN" secondAttribute="bottom" constant="20" id="t5Q-kD-tfX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KvK-BI-KFx" secondAttribute="trailing" constant="80" id="uQf-9a-22e"/>
                             <constraint firstItem="e5D-E6-msT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="wDb-BP-mH7"/>
                             <constraint firstItem="UdW-S8-JC4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="weZ-UY-2GB"/>
@@ -78,6 +89,7 @@
                     <connections>
                         <outlet property="currentTime" destination="UdW-S8-JC4" id="Vqa-2d-cJd"/>
                         <outlet property="name" destination="Oxr-oo-74E" id="oUX-wL-SNU"/>
+                        <outlet property="responseView" destination="ms5-Bg-KfN" id="iWj-sk-PVS"/>
                         <outlet property="userId" destination="e5D-E6-msT" id="usL-YN-AIU"/>
                     </connections>
                 </viewController>
@@ -87,6 +99,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
