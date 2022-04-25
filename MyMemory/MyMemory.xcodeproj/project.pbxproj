@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6179BECCFFF82E636B7AFA /* Pods_MyMemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BDA605D84F54573BB5B388 /* Pods_MyMemory.framework */; };
 		730C5203280899050046BA74 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C5202280899050046BA74 /* Tutorial.storyboard */; };
 		730C520528089AAA0046BA74 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C520428089AAA0046BA74 /* Utils.swift */; };
 		730C520728089B810046BA74 /* TutorialContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C520628089B810046BA74 /* TutorialContentsViewController.swift */; };
@@ -31,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22C8A59692784939DB3BB97B /* Pods-MyMemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMemory.release.xcconfig"; path = "Target Support Files/Pods-MyMemory/Pods-MyMemory.release.xcconfig"; sourceTree = "<group>"; };
+		3E0CA22C2AD1B310423A0A70 /* Pods-MyMemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMemory.debug.xcconfig"; path = "Target Support Files/Pods-MyMemory/Pods-MyMemory.debug.xcconfig"; sourceTree = "<group>"; };
+		56BDA605D84F54573BB5B388 /* Pods_MyMemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		730C5202280899050046BA74 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		730C520428089AAA0046BA74 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		730C520628089B810046BA74 /* TutorialContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsViewController.swift; sourceTree = "<group>"; };
@@ -63,17 +67,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D6179BECCFFF82E636B7AFA /* Pods_MyMemory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21B495AB5BACBC91EFE958F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56BDA605D84F54573BB5B388 /* Pods_MyMemory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58F0C73347D89DCF3A1C6874 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E0CA22C2AD1B310423A0A70 /* Pods-MyMemory.debug.xcconfig */,
+				22C8A59692784939DB3BB97B /* Pods-MyMemory.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		731EE61D27FDDF0100250DE5 = {
 			isa = PBXGroup;
 			children = (
 				731EE62827FDDF0100250DE5 /* MyMemory */,
 				731EE62727FDDF0100250DE5 /* Products */,
+				58F0C73347D89DCF3A1C6874 /* Pods */,
+				21B495AB5BACBC91EFE958F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 731EE63D27FDDF0100250DE5 /* Build configuration list for PBXNativeTarget "MyMemory" */;
 			buildPhases = (
+				925AE7A387F592B686800208 /* [CP] Check Pods Manifest.lock */,
 				731EE62227FDDF0100250DE5 /* Sources */,
 				731EE62327FDDF0100250DE5 /* Frameworks */,
 				731EE62427FDDF0100250DE5 /* Resources */,
+				E50FFD01A74583CB28ED8296 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		925AE7A387F592B686800208 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyMemory-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E50FFD01A74583CB28ED8296 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMemory/Pods-MyMemory-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMemory/Pods-MyMemory-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMemory/Pods-MyMemory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		731EE62227FDDF0100250DE5 /* Sources */ = {
@@ -347,6 +416,7 @@
 		};
 		731EE63E27FDDF0100250DE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E0CA22C2AD1B310423A0A70 /* Pods-MyMemory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -377,6 +447,7 @@
 		};
 		731EE63F27FDDF0100250DE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22C8A59692784939DB3BB97B /* Pods-MyMemory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
