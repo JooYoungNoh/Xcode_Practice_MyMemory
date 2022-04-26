@@ -30,6 +30,7 @@
 		737A15412805F29300AD2B8A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A15402805F29300AD2B8A /* ProfileViewController.swift */; };
 		73C2B10228171B65002B35BD /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2B10128171B65002B35BD /* JoinVC.swift */; };
 		73DBEA142807748A00EFA924 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DBEA132807748A00EFA924 /* UserInfoManager.swift */; };
+		73E5F8F228189CD600786791 /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E5F8F128189CD600786791 /* DataSync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		737A15402805F29300AD2B8A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		73C2B10128171B65002B35BD /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		73DBEA132807748A00EFA924 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		73E5F8F128189CD600786791 /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				731EE64427FDF1FF00250DE5 /* MemoCell.swift */,
 				731EE64627FDF23900250DE5 /* MemoData.swift */,
 				7312826F2811E6F500CC5AEB /* MemoDAO.swift */,
+				73E5F8F128189CD600786791 /* DataSync.swift */,
 				731EE63527FDDF0100250DE5 /* Assets.xcassets */,
 				730C5202280899050046BA74 /* Tutorial.storyboard */,
 				730C520428089AAA0046BA74 /* Utils.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				737554F02804A72F0082EF21 /* CSLogButton.swift in Sources */,
+				73E5F8F228189CD600786791 /* DataSync.swift in Sources */,
 				731EE64527FDF1FF00250DE5 /* MemoCell.swift in Sources */,
 				731EE64727FDF23900250DE5 /* MemoData.swift in Sources */,
 				730C520528089AAA0046BA74 /* Utils.swift in Sources */,

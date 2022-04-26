@@ -205,6 +205,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
                 self.drawBtn()
+                
+                //서버와 데이터 동기화
+                let sync = DataSync()
+                DispatchQueue.global(qos: .background).async {
+                    sync.downloadBackupDate()      //서버에 저장된 데이터가 있으면 받는다
+                }
+                
             }, fail: { msg in
                 self.indicatorView.stopAnimating()
                 self.isCalling = false
