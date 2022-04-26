@@ -209,7 +209,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //서버와 데이터 동기화
                 let sync = DataSync()
                 DispatchQueue.global(qos: .background).async {
-                    sync.downloadBackupDate()      //서버에 저장된 데이터가 있으면 받는다
+                    sync.downloadBackupDate()   //서버에 저장된 데이터가 있으면 내려받는다
+                }
+                DispatchQueue.global(qos: .background).async {
+                    sync.uploadData()   //서버에 저장해야 할 데이터가 있으면 업로드한다
                 }
                 
             }, fail: { msg in
