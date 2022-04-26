@@ -67,6 +67,42 @@ class DataSync{
             ud.setValue(true, forKey: "firstLogin")
         }
     }
+    //Memo 엔터티에 저장된 모든 데이터 중에서 동기화되지 않은 것을 찾아 업로드
+    func uploadData(_ indicatorView: UIActivityIndicatorView? = nil){
+        //요청 객체 생성
+        let fetchRequest: NSFetchRequest<MemoMO> = MemoMO.fetchRequest()
+        
+        //최신글 순으로 정렬
+        let regdateDesc = NSSortDescriptor(key: "regdate", ascending: false)
+        fetchRequest.sortDescriptors = [regdateDesc]
+        
+        //업로드가 되지 않은 데이터만 추출
+        fetchRequest.predicate = NSPredicate(format: "sync == false")
+        
+        do{
+            let resultset = try self.context.fetch(fetchRequest)
+            
+            //읽어온 결과 집합을 순회하면서 [MemoData] 타입으로 변환
+            for record in resultset{
+                indicatorView?.startAnimating()     //로딩시작
+                print("upload data == \(record.title)")
+                
+                //서버에 업로드
+                self.uploadDatum(record){
+                    if record === resultset.last{
+                        indicatorView?.stopAnimating()
+                    }
+                }
+            }
+        } catch let e as NSError {
+            print(e.localizedDescription)
+        }
+        
+    }
+    //인자값으로 입력된 개별 MemoMO 객체를 서버에 업로드
+    func uploadDatum(_ item: MemoMO, complete: (()->Void)? = nil) {
+        
+    }
     
 }
 
