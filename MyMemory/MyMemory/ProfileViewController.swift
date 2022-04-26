@@ -212,7 +212,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .destructive){(_) in
-            if self.uinfo.logout(){
+            self.uinfo.logout(){
                 //로그아웃시
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
