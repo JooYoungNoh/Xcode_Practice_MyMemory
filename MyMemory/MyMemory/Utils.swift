@@ -43,7 +43,6 @@ class TokenUtils{
             kSecAttrAccount : account,
             kSecValueData : value.data(using: .utf8, allowLossyConversion:  false)!
         ]
-        
         //현재 저장되어 있는 값 객체
         SecItemDelete(keyChainQuery)
         
@@ -53,4 +52,29 @@ class TokenUtils{
         NSLog("status=\(status)")
     }
     
+    //키 체인에 저장된 값을 읽어오는 메소드
+    func load(_ service: String, account: String) -> String? {
+        //키 체인 쿼리 정의
+        let keyChainQuery: NSDictionary = [
+            kSecClass : kSecClassGenericPassword,
+            kSecAttrService : service,
+            kSecAttrAccount : account,
+            kSecReturnData : kCFBooleanTrue!,
+            kSecMatchLimit : kSecMatchLimitOne
+        ]
+        //키 체인에 저장된 값을 익어온다.
+        var dataTypeRef: AnyObject?
+        let status = SecItemCopyMatching(keyChainQuery, &dataTypeRef)
+        
+        //처리 결과가 성공이라면 읽어온 값을 Data 타입으로 변환하고 String으로 변환
+        if (status == errSecSuccess){
+            let retrievedData = dataTypeRef as! Data
+            let value = String(data: retrievedData, encoding: String.Encoding.utf8)
+            return value
+        } else {
+            print("Noting was retrieved from the keychain. Status code \(status)")
+            return nil
+        }
+        
+    }
 }
