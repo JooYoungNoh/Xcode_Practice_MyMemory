@@ -340,8 +340,18 @@
                     <view key="view" contentMode="scaleToFill" id="asN-zh-HI8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-98-4Qj">
+                                <rect key="frame" x="176.66666666666666" y="403.66666666666669" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5HA-7Q-kGn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Acv-98-4Qj" firstAttribute="centerY" secondItem="asN-zh-HI8" secondAttribute="centerY" id="Bm0-dt-vQc"/>
+                            <constraint firstItem="Acv-98-4Qj" firstAttribute="centerX" secondItem="asN-zh-HI8" secondAttribute="centerX" id="vnl-xl-o0B"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nAU-Xr-0ph">
                         <barButtonItem key="rightBarButtonItem" title="새 계정" id="SRK-yr-mJB">
@@ -350,6 +360,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="indicatorView" destination="Acv-98-4Qj" id="zrz-S4-E8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBC-hW-ieG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
