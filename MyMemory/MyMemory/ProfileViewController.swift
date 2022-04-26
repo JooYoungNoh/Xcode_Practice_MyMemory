@@ -155,18 +155,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let account = loginAlert.textFields?[0].text ?? ""          //첫번째 필드 계정
             let passwd = loginAlert.textFields?[1].text ?? ""           //두번째 필드 비밀번호
             
-            if self.uinfo.login(account: account, passwd: passwd){
-                //로그인 성공시
+            //비동기 방식으로 변경되는 부분
+            self.uinfo.login(account: account, passwd: passwd, success: {
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
                 self.drawBtn()
-            } else {
-                let msg = "로그인에 실패하였습니다"
-                let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                self.present(alert, animated: false)
-            }
+            }, fail: { msg in
+                self.alert(msg)
+            })
         })
         self.present(loginAlert, animated: false)
     }
