@@ -237,7 +237,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             self.uinfo.logout(){
                 //Logout API 호출과 logout() 실행이 모두 끝나면 인디케이터도 중지
-                self.indicatorView.startAnimating()
+                self.indicatorView.stopAnimating()
                 
                 //로그아웃시
                 self.tv.reloadData()
