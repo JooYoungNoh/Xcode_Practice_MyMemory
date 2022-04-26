@@ -105,7 +105,7 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
             "account" : self.fieldAccount.text!,
             "passwd" : self.fieldPassword.text!,
             "name" : self.fieldName.text!,
-            "profile_imagee" : profile!
+            "profile_image" : profile!
         ]
         
         //API 호출
